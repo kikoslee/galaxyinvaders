@@ -1,0 +1,77 @@
+"Objective_Name_Score" = "得分 %d";
+"Objective_Name_Last" = "生存 %d";
+"Objective_Name_Green" = "绿色 %d";
+"Objective_Name_Yellow" = "黄色 %d";
+"Objective_Name_Total" = "总数 %d";
+
+"Objective_Desc_Score" = "获得 %d 分";
+"Objective_Desc_Last" = "坚持 %d 秒";
+"Objective_Desc_Green" = "收集 %d 绿色入侵者";
+"Objective_Desc_Yellow" = "收集 %d 黄色入侵者";
+"Objective_Desc_Total" = "收集 %d 全部入侵者";
+
+"Next Mission" = "下一任务";
+"Multiplier:" = "倍率:";
+"All mission are cleared" = "所有任务已完成";
+"Close" = "关闭";
+
+"Purchasing..." = "购买中...";
+"PurchaseFailed" = "购买失败";
+"PurchaseClosedMsg" = "你关闭了应用内购买功能,请从设定中打开.";
+"PurchaseFailedMsg" = "购买失败,请重新尝试";
+
+"Give us a review to get 1500 coins." = "如果你喜欢 Galaxy Invader, 给我们一份评价吧.";
+"Feedback an email to get 1000 coins." = "反馈一封邮件获得 1000 金币.";
+"Like us to get 800 coins." = "给我们个赞获得 800 金币.";
+"Follow us to get 800 coins." = "跟随我们获得 800 金币.";
+"Watch a video to get 1000 coins." = "观看一段视频获得 1000 金币.";
+"Get 1000 coins daily." = "获得每日赠礼 1000 金币.";
+"Explore more coins." = "搜索更多免费金币.";
+"Review" = "评价";
+"Email" = "反馈";
+"Like" = "赞";
+"Follow" = "跟随";
+"Watch" = "观看";
+"Get" = "获得";
+"Explore" = "探索";
+"More Coin" = "更多金币";
+"Buy" = "购买";
+"All Invaders" = "全部入侵者";
+"Quit" = "退出";
+"Continue" = "继续";
+"Result" = "结果";
+"Score:" = "得分:";
+"Survival:" = "生存:";
+"Free Coin" = "免费金币";
+"Share To:" = "分享:";
+"Destroy all invaders." = "消灭所有入侵者.";
+"Slow down the invaders' move speed." = "大幅降低入侵者的行动速度.";
+"Prevent from the destroy invader." = "挡住所有'红色'入侵者.";
+"Get 1 extra life permanently." = "永久获得 +1 额外生命.";
+"Reduce 'Bomb' countdown time." = "降低 '炸弹' 冷却时间.";
+"Reduce 'Freeze' countdown time." = "降低 '冻结' 冷却时间.";
+"Reduce 'Shield' countdown time." = "降低 '护盾' 冷却时间.";
+"Bomb" = "炸弹";
+"Freeze" = "冻结";
+"Shield" = "护盾";
+"Life" = "生命";
+"Bomb Upgrade" = "炸弹强化";
+"Freeze Upgrade" = "冻结强化";
+"Shield Upgrade" = "护盾强化";
+"Equip Skill" = "装配技能";
+"Go" = "开始";
+"Equip" = "装配";
+"Upgrade" = "升级";
+"1.Drag white hole to absorb these invaders." = "1.拖动吸洞吸收掉这些入侵者.";
+"2.Miss any \"GREEN\" or \"YELLOW\" invader, or hit the \"RED\" invader will lose 1 life." = "2.漏掉任何一个\"绿色\"或\"黄色\"入侵者, 或者撞上任何一个\"红色\"入侵者将会损失1条命.";
+"3.You can use spell to boost scores." = "3.可以使用技能来提高得分.";
+"Tap screen to continue" = "点击屏幕继续";
+
+"New invaders come, destroy them. Quickly!" = "入侵警报, 新入群者到达, 快去消灭他们!";
+"Come to challange highest score!" = "快来挑战新的高分排行榜吧,全球排行!";
+"Your friends get a new higher score. Just Beat It!" = "你的朋友刚刚超过了你的得分,快来击败他!";
+
+"Current" = "当前";
+"MAX" = "最大";
+"Next" = "下一级";
+"Current Mission" = "当前任务";

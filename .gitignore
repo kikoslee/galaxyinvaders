@@ -1,0 +1,3 @@
+*.DS_Store
+proj.ios/galaxyinvaders.xcodeproj/project.xcworkspace/*
+proj.ios/galaxyinvaders.xcodeproj/xcuserdata/*
