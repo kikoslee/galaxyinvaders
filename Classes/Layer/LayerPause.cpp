@@ -1,19 +1,33 @@
 #include "LayerPause.h"
 //#include "LayerGame.h"
-#include "LayerStore.h"
-//#include "LayerHelp.h"
+#include "LayerStoreLoader.h"
+#include "LayerHelpLoader.h"
 #include "GlobalData.h"
 
 LayerPause::LayerPause()
+: mLabelCurrentMission(NULL)
+, mLabelMissionName(NULL)
+, mLabelMissionDesc(NULL)
+, mLabelAllInvaders(NULL)
+, mBtnSound(NULL)
+, mBtnExit(NULL)
+, mBtnContinue(NULL)
 {
+    for (int i = 0; i < 5; i++)
+        mLabelCount[i] = NULL;
 }
 
 LayerPause::~LayerPause()
 {
-}
-
-void LayerPause::onNodeLoaded(CCNode* pNode, CCNodeLoader* pNodeLoader)
-{
+    CC_SAFE_RELEASE(mLabelCurrentMission);
+    CC_SAFE_RELEASE(mLabelMissionName);
+    CC_SAFE_RELEASE(mLabelMissionDesc);
+    CC_SAFE_RELEASE(mLabelAllInvaders);
+    for (int i = 0; i < 5; i++)
+        CC_SAFE_RELEASE(mLabelCount[i]);
+    CC_SAFE_RELEASE(mBtnSound);
+    CC_SAFE_RELEASE(mBtnExit);
+    CC_SAFE_RELEASE(mBtnContinue);
 }
 
 SEL_MenuHandler LayerPause::onResolveCCBCCMenuItemSelector(CCObject* pTarget, const char* pSelectorName)
@@ -23,85 +37,79 @@ SEL_MenuHandler LayerPause::onResolveCCBCCMenuItemSelector(CCObject* pTarget, co
 
 SEL_CCControlHandler LayerPause::onResolveCCBCCControlSelector(CCObject* pTarget, const char* pSelectorName)
 {
+    CCB_SELECTORRESOLVER_CCCONTROL_GLUE(this, "onBtnHelp", LayerPause::onBtnHelp);
+    CCB_SELECTORRESOLVER_CCCONTROL_GLUE(this, "onBtnSound", LayerPause::onBtnSound);
+    CCB_SELECTORRESOLVER_CCCONTROL_GLUE(this, "onBtnExit", LayerPause::onBtnExit);
+    CCB_SELECTORRESOLVER_CCCONTROL_GLUE(this, "onBtnContinue", LayerPause::onBtnContinue);
     return NULL;
 }
 
 bool LayerPause::onAssignCCBMemberVariable(CCObject* pTarget, const char* pMemberVariableName, CCNode* pNode)
 {
+    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mLabelCurrentMission", CCLabelTTF*, mLabelCurrentMission);
+    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mLabelMissionName", CCLabelTTF*, mLabelMissionName);
+    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mLabelMissionDesc", CCLabelTTF*, mLabelMissionDesc);
+    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mLabelAllInvaders", CCLabelTTF*, mLabelAllInvaders);
+    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mLabelCount1", CCLabelTTF*, mLabelCount[0]);
+    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mLabelCount2", CCLabelTTF*, mLabelCount[1]);
+    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mLabelCount3", CCLabelTTF*, mLabelCount[2]);
+    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mLabelCount4", CCLabelTTF*, mLabelCount[3]);
+    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mLabelCount5", CCLabelTTF*, mLabelCount[4]);
+    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mBtnSound", CCControlButton*, mBtnSound);
+    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mBtnExit", CCControlButton*, mBtnExit);
+    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mBtnContinue", CCControlButton*, mBtnContinue);
+
     return false;
 }
 
-/*
-CCPoint sStartPos = ccp(70,180);
-
-bool LayerPause::init()
+void LayerPause::onNodeLoaded(CCNode* pNode, CCNodeLoader* pNodeLoader)
 {
-    createLabel(getLocalizedString("Current Mission"), gFontName, 16, gAnchorCenter, gColorBtn, 240, 280, this);
-    createLabel(GDShared->getCurObjName(), gFontName, 14, gAnchorLeft, ccYELLOW, 200, 260, this);
-    createLabel(GDShared->getCurObjDesc(), gFontName, 10, gAnchorLeft, gColorBtn, 200, 247, this);
-	
-	// Enemies
-	createLabel(getLocalizedString("All Invaders"), gFontName, 20, gAnchorLeft, ccYELLOW, 80, 210, this);
+    mLabelCurrentMission->setString(gls("Current Mission"));
+    mLabelMissionName->setString(GDShared->getCurObjName());
+    mLabelMissionDesc->setString(GDShared->getCurObjDesc());
+    mLabelAllInvaders->setString(gls("All Invaders"));
 
+    mBtnExit->setTitleForState(ccs(gls("Quit")), CCControlStateNormal);
+    mBtnContinue->setTitleForState(ccs(gls("Continue")), CCControlStateNormal);
+    
 	for( int i = 0; i < INVADERS_COUNT - 2; i++)
-	{
-		const InvaderData& index = GDShared->getInvader((InvaderType)i);
-		int x = sStartPos.x + (i % 3) * 120;
-		int y = sStartPos.y - (i / 3) * 40;
-		invader->setPosition(ccp(x,y));
-		invader->setScale(0.8);
-		invader->setAnchorPoint(gAnchorLeft);
-		addChild(invader);
-
-        createLabel(fcs("x %d", GDShared->curInvadersCount[i]), gFontName, 18, gAnchorLeft, ccYELLOW, x+45, y, this);
-	}
-	
-	CCMenu* menu = createMenu(this);
-	
-	CCMenuItem* item;
-    item = createMenuItemWithCache("btn1.png", "btn1_d.png", 420, 80, pmtQuit, menu, this, menu_selector(LayerPause::_menuCallback));
-	addMenuLabel(item, getLocalizedString("Quit"), gFontName, 16, ccWHITE);
-	item = createMenuItemWithCache("btn1.png", "btn1_d.png", 420, 25, pmtContinue, menu, this, menu_selector(LayerPause::_menuCallback));
-	addMenuLabel(item, getLocalizedString("Continue"), gFontName, 16, ccWHITE);
-	
-	createMenuItemWithCache("btn-help.png", "btn-help.png", 450, 295, pmtHelp, menu, this, menu_selector(LayerPause::_menuCallback));
-	
-	return true;
+        mLabelCount[i]->setString(fcs("x %d", GDShared->curInvadersCount[i]));
 }
 
-void LayerPause::_menuCallback(CCObject* sender)
+void LayerPause::onBtnSound(CCObject* pSender, CCControlEvent pCCControlEvent)
 {
-	int index = ((CCMenuItem*)sender)->getTag();
+	Audio->playEffect(EF_CLICK);
+    
+}
 
+void LayerPause::onBtnHelp(CCObject* pSender, CCControlEvent pCCControlEvent)
+{
+	Audio->playEffect(EF_CLICK);
+    LayerHelp* layer = (LayerHelp*)HBLayerLoader("LayerHelp", LayerHelpLoader::loader());
+    layer->setInGame(true);
+    getParent()->addChild(layer, 30000);
+}
+
+void LayerPause::onBtnExit(CCObject* pSender, CCControlEvent pCCControlEvent)
+{
+	Audio->playEffect(EF_CLICK);
+    Audio->playBackgroundMusic(MUSIC_BG1, true);
+    CCDirector::sharedDirector()->replaceScene(CCTransitionFade::create(0.5, HBSceneLoader("LayerStore", LayerStoreLoader::loader())));
+}
+
+void LayerPause::onBtnContinue(CCObject* pSender, CCControlEvent pCCControlEvent)
+{
 	Audio->playEffect(EF_CLICK);
 
-	switch(index)
-	{
-		case pmtQuit:
-			CCDirector::sharedDirector()->replaceScene(CCTransitionFade::create(0.5, LayerStore::scene()));
-			Audio->playBackgroundMusic(MUSIC_BG1, true);
-			break;
-		case pmtContinue:
-		{
-			CCScene* scene = CCDirector::sharedDirector()->getRunningScene();
-			CCArray* layers = scene->getChildren();
-			CCObject* child = NULL;
-			CCARRAY_FOREACH(layers, child)
-			{
-				CC_BREAK_IF(!child);
-				CCLayer* layer =(CCLayer*)child;
-				if(!layer->isRunning())
-					layer->onEnter();
-			}
-			scene->removeChild(this, true);
-			break;
-		}
-		case pmtHelp:
-		{
-			LayerHelp* layer = LayerHelp::create();
-			layer->loadInGame();
-			getParent()->addChild(layer, 30000);
-		}
-	}
+    CCScene* scene = CCDirector::sharedDirector()->getRunningScene();
+    CCArray* layers = scene->getChildren();
+    CCObject* child = NULL;
+    CCARRAY_FOREACH(layers, child)
+    {
+        CC_BREAK_IF(!child);
+        CCLayer* layer =(CCLayer*)child;
+        if(!layer->isRunning())
+            layer->onEnter();
+    }
+    scene->removeChild(this, true);
 }
-*/

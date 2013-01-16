@@ -17,14 +17,9 @@
 		BF09CCEA16861253009C0CE1 /* HBGameCenter.mm in Sources */ = {isa = PBXBuildFile; fileRef = BF09CCDE16861253009C0CE1 /* HBGameCenter.mm */; };
 		BF09CCEB16861253009C0CE1 /* HBCommon.mm in Sources */ = {isa = PBXBuildFile; fileRef = BF09CCDF16861253009C0CE1 /* HBCommon.mm */; };
 		BF09CCEC16861253009C0CE1 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF09CCE016861253009C0CE1 /* libMobClickLibrary.a */; };
-		BF09CD0F16861724009C0CE1 /* IAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BF09CD0816861724009C0CE1 /* IAPHelper.m */; };
-		BF09CD2C16861807009C0CE1 /* InvaderManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF09CD2116861807009C0CE1 /* InvaderManager.cpp */; };
-		BF09CD2D16861807009C0CE1 /* SpellSlot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF09CD2316861807009C0CE1 /* SpellSlot.cpp */; };
 		BF09CD2E16861BE4009C0CE1 /* ChanceDecision.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF09CD0016861724009C0CE1 /* ChanceDecision.cpp */; };
-		BF09CD2F16861DD0009C0CE1 /* InvaderBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF09CD1F16861807009C0CE1 /* InvaderBase.cpp */; };
 		BF09CD3116861E37009C0CE1 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF09CD3016861E36009C0CE1 /* GameKit.framework */; };
 		BF09CD3316861F9B009C0CE1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF09CD3216861F9B009C0CE1 /* StoreKit.framework */; };
-		BF09CD3416861FAD009C0CE1 /* GlobalData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF09CD1D16861807009C0CE1 /* GlobalData.cpp */; };
 		BF2BE292168774AE002375F3 /* LayerMissionClear.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF09CCF416861717009C0CE1 /* LayerMissionClear.cpp */; };
 		BF484E661673D2470089842A /* LayerStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF484E641673D2470089842A /* LayerStore.cpp */; };
 		BFA10AE61673A9F200DF75C1 /* images in Resources */ = {isa = PBXBuildFile; fileRef = BFA10AE51673A9F200DF75C1 /* images */; };
@@ -222,15 +217,25 @@
 		BFFF80351672701E009DBDE5 /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BFFF7F781672701E009DBDE5 /* RootViewController.mm */; };
 		BFFF807316727245009DBDE5 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFFF803F16727245009DBDE5 /* AppDelegate.cpp */; };
 		BFFF808F16731B41009DBDE5 /* LayerMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFFF808C16731B41009DBDE5 /* LayerMain.cpp */; };
-		EE35D3DB168C310F0049FB9B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE35D3DD168C310F0049FB9B /* Localizable.strings */; };
 		EE35D3E5168C396A0049FB9B /* sound in Resources */ = {isa = PBXBuildFile; fileRef = EE35D3E4168C396A0049FB9B /* sound */; };
 		EE35D3FA168C500D0049FB9B /* StoreItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE35D3F7168C500D0049FB9B /* StoreItem.cpp */; };
+		EE75C80216A57B5C00D138DE /* BuyItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE75C7FF16A57B5C00D138DE /* BuyItem.cpp */; };
+		EE77370E16A6A70200C66919 /* IAPHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = EE77370B16A6A70200C66919 /* IAPHelper.mm */; };
+		EE7C876516A2AFD000605D65 /* NextMission.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE7C876216A2AFD000605D65 /* NextMission.cpp */; };
+		EE7C876A16A2B30900605D65 /* TotalGold.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE7C876716A2B30800605D65 /* TotalGold.cpp */; };
+		EE7C877916A311C300605D65 /* LayerHelp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF09CCF216861717009C0CE1 /* LayerHelp.cpp */; };
+		EE7C877A16A3267800605D65 /* LayerBuy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF09CCEE16861717009C0CE1 /* LayerBuy.cpp */; };
 		EE86B17316A00D0E00259012 /* LayerGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF09CCF016861717009C0CE1 /* LayerGame.cpp */; };
-		EE86B17516A025E600259012 /* Devourer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF09CD1916861807009C0CE1 /* Devourer.cpp */; };
-		EE86B17616A025F200259012 /* ExplodeScore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF09CD1B16861807009C0CE1 /* ExplodeScore.cpp */; };
-		EE86B17716A0320C00259012 /* BuffManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF09CD1216861807009C0CE1 /* BuffManager.cpp */; };
-		EE86B17816A051B100259012 /* DataType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF09CD1416861807009C0CE1 /* DataType.cpp */; };
 		EE9656E8169C1D7400C1B289 /* TableViewStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE9656E6169C1D7400C1B289 /* TableViewStore.cpp */; };
+		EEC90BF116A71CBB0008553E /* BuffManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEC90BDF16A71CBB0008553E /* BuffManager.cpp */; };
+		EEC90BF216A71CBB0008553E /* DataType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEC90BE116A71CBB0008553E /* DataType.cpp */; };
+		EEC90BF316A71CBB0008553E /* Devourer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEC90BE316A71CBB0008553E /* Devourer.cpp */; };
+		EEC90BF416A71CBB0008553E /* Dialog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEC90BE516A71CBB0008553E /* Dialog.cpp */; };
+		EEC90BF516A71CBB0008553E /* ExplodeScore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEC90BE716A71CBB0008553E /* ExplodeScore.cpp */; };
+		EEC90BF616A71CBB0008553E /* GlobalData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEC90BE916A71CBB0008553E /* GlobalData.cpp */; };
+		EEC90BF716A71CBB0008553E /* InvaderBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEC90BEB16A71CBB0008553E /* InvaderBase.cpp */; };
+		EEC90BF816A71CBB0008553E /* InvaderManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEC90BED16A71CBB0008553E /* InvaderManager.cpp */; };
+		EEC90BF916A71CBB0008553E /* SpellSlot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEC90BEF16A71CBB0008553E /* SpellSlot.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -266,30 +271,6 @@
 		BF09CCF916861717009C0CE1 /* LayerResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LayerResult.h; path = Layer/LayerResult.h; sourceTree = "<group>"; };
 		BF09CD0016861724009C0CE1 /* ChanceDecision.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ChanceDecision.cpp; path = Common/ChanceDecision.cpp; sourceTree = "<group>"; };
 		BF09CD0116861724009C0CE1 /* ChanceDecision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChanceDecision.h; path = Common/ChanceDecision.h; sourceTree = "<group>"; };
-		BF09CD0316861724009C0CE1 /* CommonHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CommonHelper.cpp; path = Common/CommonHelper.cpp; sourceTree = "<group>"; };
-		BF09CD0416861724009C0CE1 /* CommonHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonHelper.h; path = Common/CommonHelper.h; sourceTree = "<group>"; };
-		BF09CD0716861724009C0CE1 /* IAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IAPHelper.h; path = Common/IAPHelper.h; sourceTree = "<group>"; };
-		BF09CD0816861724009C0CE1 /* IAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IAPHelper.m; path = Common/IAPHelper.m; sourceTree = "<group>"; };
-		BF09CD0916861724009C0CE1 /* IAPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IAPManager.h; path = Common/IAPManager.h; sourceTree = "<group>"; };
-		BF09CD0A16861724009C0CE1 /* IAPManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = IAPManager.mm; path = Common/IAPManager.mm; sourceTree = "<group>"; };
-		BF09CD1216861807009C0CE1 /* BuffManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BuffManager.cpp; sourceTree = "<group>"; };
-		BF09CD1316861807009C0CE1 /* BuffManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuffManager.h; sourceTree = "<group>"; };
-		BF09CD1416861807009C0CE1 /* DataType.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DataType.cpp; sourceTree = "<group>"; };
-		BF09CD1516861807009C0CE1 /* DataType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataType.h; sourceTree = "<group>"; };
-		BF09CD1616861807009C0CE1 /* Dialog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dialog.cpp; sourceTree = "<group>"; };
-		BF09CD1716861807009C0CE1 /* Dialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dialog.h; sourceTree = "<group>"; };
-		BF09CD1916861807009C0CE1 /* Devourer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Devourer.cpp; sourceTree = "<group>"; };
-		BF09CD1A16861807009C0CE1 /* Devourer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Devourer.h; sourceTree = "<group>"; };
-		BF09CD1B16861807009C0CE1 /* ExplodeScore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExplodeScore.cpp; sourceTree = "<group>"; };
-		BF09CD1C16861807009C0CE1 /* ExplodeScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExplodeScore.h; sourceTree = "<group>"; };
-		BF09CD1D16861807009C0CE1 /* GlobalData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GlobalData.cpp; sourceTree = "<group>"; };
-		BF09CD1E16861807009C0CE1 /* GlobalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalData.h; sourceTree = "<group>"; };
-		BF09CD1F16861807009C0CE1 /* InvaderBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InvaderBase.cpp; sourceTree = "<group>"; };
-		BF09CD2016861807009C0CE1 /* InvaderBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvaderBase.h; sourceTree = "<group>"; };
-		BF09CD2116861807009C0CE1 /* InvaderManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InvaderManager.cpp; sourceTree = "<group>"; };
-		BF09CD2216861807009C0CE1 /* InvaderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvaderManager.h; sourceTree = "<group>"; };
-		BF09CD2316861807009C0CE1 /* SpellSlot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpellSlot.cpp; sourceTree = "<group>"; };
-		BF09CD2416861807009C0CE1 /* SpellSlot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpellSlot.h; sourceTree = "<group>"; };
 		BF09CD3016861E36009C0CE1 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		BF09CD3216861F9B009C0CE1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		BF484E641673D2470089842A /* LayerStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LayerStore.cpp; path = Layer/LayerStore.cpp; sourceTree = "<group>"; };
@@ -736,15 +717,41 @@
 		BFFF808C16731B41009DBDE5 /* LayerMain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LayerMain.cpp; path = Layer/LayerMain.cpp; sourceTree = "<group>"; };
 		BFFF808D16731B41009DBDE5 /* LayerMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LayerMain.h; path = Layer/LayerMain.h; sourceTree = "<group>"; };
 		BFFF808E16731B41009DBDE5 /* LayerMainLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LayerMainLoader.h; path = Layer/LayerMainLoader.h; sourceTree = "<group>"; };
-		EE35D3DC168C310F0049FB9B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		EE35D3DE168C311F0049FB9B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		EE35D3DF168C312F0049FB9B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		EE35D3E4168C396A0049FB9B /* sound */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sound; sourceTree = "<group>"; };
 		EE35D3F7168C500D0049FB9B /* StoreItem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StoreItem.cpp; path = Layer/StoreItem.cpp; sourceTree = "<group>"; };
 		EE35D3F8168C500D0049FB9B /* StoreItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreItem.h; path = Layer/StoreItem.h; sourceTree = "<group>"; };
 		EE35D3F9168C500D0049FB9B /* StoreItemLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreItemLoader.h; path = Layer/StoreItemLoader.h; sourceTree = "<group>"; };
+		EE75C7FF16A57B5C00D138DE /* BuyItem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BuyItem.cpp; path = Layer/BuyItem.cpp; sourceTree = "<group>"; };
+		EE75C80016A57B5C00D138DE /* BuyItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuyItem.h; path = Layer/BuyItem.h; sourceTree = "<group>"; };
+		EE75C80116A57B5C00D138DE /* BuyItemLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuyItemLoader.h; path = Layer/BuyItemLoader.h; sourceTree = "<group>"; };
+		EE77370A16A6A70200C66919 /* IAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAPHelper.h; sourceTree = "<group>"; };
+		EE77370B16A6A70200C66919 /* IAPHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = IAPHelper.mm; sourceTree = "<group>"; };
+		EE7C876216A2AFD000605D65 /* NextMission.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NextMission.cpp; path = Layer/NextMission.cpp; sourceTree = "<group>"; };
+		EE7C876316A2AFD000605D65 /* NextMission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NextMission.h; path = Layer/NextMission.h; sourceTree = "<group>"; };
+		EE7C876416A2AFD000605D65 /* NextMissionLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NextMissionLoader.h; path = Layer/NextMissionLoader.h; sourceTree = "<group>"; };
+		EE7C876716A2B30800605D65 /* TotalGold.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TotalGold.cpp; path = Layer/TotalGold.cpp; sourceTree = "<group>"; };
+		EE7C876816A2B30900605D65 /* TotalGold.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TotalGold.h; path = Layer/TotalGold.h; sourceTree = "<group>"; };
+		EE7C876916A2B30900605D65 /* TotalGoldLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TotalGoldLoader.h; path = Layer/TotalGoldLoader.h; sourceTree = "<group>"; };
 		EE9656E6169C1D7400C1B289 /* TableViewStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TableViewStore.cpp; path = Layer/TableViewStore.cpp; sourceTree = "<group>"; };
 		EE9656E7169C1D7400C1B289 /* TableViewStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewStore.h; path = Layer/TableViewStore.h; sourceTree = "<group>"; };
+		EEC90BDF16A71CBB0008553E /* BuffManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BuffManager.cpp; path = Common/BuffManager.cpp; sourceTree = "<group>"; };
+		EEC90BE016A71CBB0008553E /* BuffManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuffManager.h; path = Common/BuffManager.h; sourceTree = "<group>"; };
+		EEC90BE116A71CBB0008553E /* DataType.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DataType.cpp; path = Common/DataType.cpp; sourceTree = "<group>"; };
+		EEC90BE216A71CBB0008553E /* DataType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataType.h; path = Common/DataType.h; sourceTree = "<group>"; };
+		EEC90BE316A71CBB0008553E /* Devourer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Devourer.cpp; path = Common/Devourer.cpp; sourceTree = "<group>"; };
+		EEC90BE416A71CBB0008553E /* Devourer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Devourer.h; path = Common/Devourer.h; sourceTree = "<group>"; };
+		EEC90BE516A71CBB0008553E /* Dialog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Dialog.cpp; path = Common/Dialog.cpp; sourceTree = "<group>"; };
+		EEC90BE616A71CBB0008553E /* Dialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dialog.h; path = Common/Dialog.h; sourceTree = "<group>"; };
+		EEC90BE716A71CBB0008553E /* ExplodeScore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ExplodeScore.cpp; path = Common/ExplodeScore.cpp; sourceTree = "<group>"; };
+		EEC90BE816A71CBB0008553E /* ExplodeScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExplodeScore.h; path = Common/ExplodeScore.h; sourceTree = "<group>"; };
+		EEC90BE916A71CBB0008553E /* GlobalData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GlobalData.cpp; path = Common/GlobalData.cpp; sourceTree = "<group>"; };
+		EEC90BEA16A71CBB0008553E /* GlobalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlobalData.h; path = Common/GlobalData.h; sourceTree = "<group>"; };
+		EEC90BEB16A71CBB0008553E /* InvaderBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = InvaderBase.cpp; path = Common/InvaderBase.cpp; sourceTree = "<group>"; };
+		EEC90BEC16A71CBB0008553E /* InvaderBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InvaderBase.h; path = Common/InvaderBase.h; sourceTree = "<group>"; };
+		EEC90BED16A71CBB0008553E /* InvaderManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = InvaderManager.cpp; path = Common/InvaderManager.cpp; sourceTree = "<group>"; };
+		EEC90BEE16A71CBB0008553E /* InvaderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InvaderManager.h; path = Common/InvaderManager.h; sourceTree = "<group>"; };
+		EEC90BEF16A71CBB0008553E /* SpellSlot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SpellSlot.cpp; path = Common/SpellSlot.cpp; sourceTree = "<group>"; };
+		EEC90BF016A71CBB0008553E /* SpellSlot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpellSlot.h; path = Common/SpellSlot.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -786,6 +793,8 @@
 		BF09CCD316861253009C0CE1 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				EE77370A16A6A70200C66919 /* IAPHelper.h */,
+				EE77370B16A6A70200C66919 /* IAPHelper.mm */,
 				BF09CCD416861253009C0CE1 /* GameCenter */,
 				BF09CCDF16861253009C0CE1 /* HBCommon.mm */,
 				BF09CCE016861253009C0CE1 /* libMobClickLibrary.a */,
@@ -809,38 +818,6 @@
 				BF09CCDE16861253009C0CE1 /* HBGameCenter.mm */,
 			);
 			path = GameCenter;
-			sourceTree = "<group>";
-		};
-		BF09CD1116861807009C0CE1 /* Global */ = {
-			isa = PBXGroup;
-			children = (
-				BF09CD1216861807009C0CE1 /* BuffManager.cpp */,
-				BF09CD1316861807009C0CE1 /* BuffManager.h */,
-				BF09CD1416861807009C0CE1 /* DataType.cpp */,
-				BF09CD1516861807009C0CE1 /* DataType.h */,
-				BF09CD1616861807009C0CE1 /* Dialog.cpp */,
-				BF09CD1716861807009C0CE1 /* Dialog.h */,
-			);
-			path = Global;
-			sourceTree = "<group>";
-		};
-		BF09CD1816861807009C0CE1 /* Other */ = {
-			isa = PBXGroup;
-			children = (
-				BF09CD1916861807009C0CE1 /* Devourer.cpp */,
-				BF09CD1A16861807009C0CE1 /* Devourer.h */,
-				BF09CD1B16861807009C0CE1 /* ExplodeScore.cpp */,
-				BF09CD1C16861807009C0CE1 /* ExplodeScore.h */,
-				BF09CD1D16861807009C0CE1 /* GlobalData.cpp */,
-				BF09CD1E16861807009C0CE1 /* GlobalData.h */,
-				BF09CD1F16861807009C0CE1 /* InvaderBase.cpp */,
-				BF09CD2016861807009C0CE1 /* InvaderBase.h */,
-				BF09CD2116861807009C0CE1 /* InvaderManager.cpp */,
-				BF09CD2216861807009C0CE1 /* InvaderManager.h */,
-				BF09CD2316861807009C0CE1 /* SpellSlot.cpp */,
-				BF09CD2416861807009C0CE1 /* SpellSlot.h */,
-			);
-			path = Other;
 			sourceTree = "<group>";
 		};
 		BFFF7AD416726F56009DBDE5 = {
@@ -884,7 +861,6 @@
 			isa = PBXGroup;
 			children = (
 				EE35D3E4168C396A0049FB9B /* sound */,
-				EE35D3DD168C310F0049FB9B /* Localizable.strings */,
 				BFA10AE51673A9F200DF75C1 /* images */,
 			);
 			name = Resources;
@@ -915,8 +891,6 @@
 		BFFF7D8F16726F5D009DBDE5 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				BF09CD1116861807009C0CE1 /* Global */,
-				BF09CD1816861807009C0CE1 /* Other */,
 				BFFF809016731B8E009DBDE5 /* Common */,
 				BFFF808B16731B2C009DBDE5 /* Layer */,
 				BFFF803F16727245009DBDE5 /* AppDelegate.cpp */,
@@ -1728,6 +1702,15 @@
 		BFFF808B16731B2C009DBDE5 /* Layer */ = {
 			isa = PBXGroup;
 			children = (
+				EE75C7FF16A57B5C00D138DE /* BuyItem.cpp */,
+				EE75C80016A57B5C00D138DE /* BuyItem.h */,
+				EE75C80116A57B5C00D138DE /* BuyItemLoader.h */,
+				EE7C876716A2B30800605D65 /* TotalGold.cpp */,
+				EE7C876816A2B30900605D65 /* TotalGold.h */,
+				EE7C876916A2B30900605D65 /* TotalGoldLoader.h */,
+				EE7C876216A2AFD000605D65 /* NextMission.cpp */,
+				EE7C876316A2AFD000605D65 /* NextMission.h */,
+				EE7C876416A2AFD000605D65 /* NextMissionLoader.h */,
 				EE9656E6169C1D7400C1B289 /* TableViewStore.cpp */,
 				EE9656E7169C1D7400C1B289 /* TableViewStore.h */,
 				EE35D3F7168C500D0049FB9B /* StoreItem.cpp */,
@@ -1764,14 +1747,26 @@
 		BFFF809016731B8E009DBDE5 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				EEC90BDF16A71CBB0008553E /* BuffManager.cpp */,
+				EEC90BE016A71CBB0008553E /* BuffManager.h */,
+				EEC90BE116A71CBB0008553E /* DataType.cpp */,
+				EEC90BE216A71CBB0008553E /* DataType.h */,
+				EEC90BE316A71CBB0008553E /* Devourer.cpp */,
+				EEC90BE416A71CBB0008553E /* Devourer.h */,
+				EEC90BE516A71CBB0008553E /* Dialog.cpp */,
+				EEC90BE616A71CBB0008553E /* Dialog.h */,
+				EEC90BE716A71CBB0008553E /* ExplodeScore.cpp */,
+				EEC90BE816A71CBB0008553E /* ExplodeScore.h */,
+				EEC90BE916A71CBB0008553E /* GlobalData.cpp */,
+				EEC90BEA16A71CBB0008553E /* GlobalData.h */,
+				EEC90BEB16A71CBB0008553E /* InvaderBase.cpp */,
+				EEC90BEC16A71CBB0008553E /* InvaderBase.h */,
+				EEC90BED16A71CBB0008553E /* InvaderManager.cpp */,
+				EEC90BEE16A71CBB0008553E /* InvaderManager.h */,
+				EEC90BEF16A71CBB0008553E /* SpellSlot.cpp */,
+				EEC90BF016A71CBB0008553E /* SpellSlot.h */,
 				BF09CD0016861724009C0CE1 /* ChanceDecision.cpp */,
 				BF09CD0116861724009C0CE1 /* ChanceDecision.h */,
-				BF09CD0316861724009C0CE1 /* CommonHelper.cpp */,
-				BF09CD0416861724009C0CE1 /* CommonHelper.h */,
-				BF09CD0716861724009C0CE1 /* IAPHelper.h */,
-				BF09CD0816861724009C0CE1 /* IAPHelper.m */,
-				BF09CD0916861724009C0CE1 /* IAPManager.h */,
-				BF09CD0A16861724009C0CE1 /* IAPManager.mm */,
 				BF09CCED16861293009C0CE1 /* HBKeys.h */,
 			);
 			name = Common;
@@ -1839,7 +1834,6 @@
 				BF09CCE516861253009C0CE1 /* gk-icon@2x.png in Resources */,
 				BF09CCE616861253009C0CE1 /* gk-notification.png in Resources */,
 				BF09CCE716861253009C0CE1 /* gk-notification@2x.png in Resources */,
-				EE35D3DB168C310F0049FB9B /* Localizable.strings in Resources */,
 				EE35D3E5168C396A0049FB9B /* sound in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2035,39 +2029,32 @@
 				BF09CCE916861253009C0CE1 /* GKAchievementNotification.m in Sources */,
 				BF09CCEA16861253009C0CE1 /* HBGameCenter.mm in Sources */,
 				BF09CCEB16861253009C0CE1 /* HBCommon.mm in Sources */,
-				BF09CD0F16861724009C0CE1 /* IAPHelper.m in Sources */,
-				BF09CD2C16861807009C0CE1 /* InvaderManager.cpp in Sources */,
-				BF09CD2D16861807009C0CE1 /* SpellSlot.cpp in Sources */,
 				BF09CD2E16861BE4009C0CE1 /* ChanceDecision.cpp in Sources */,
-				BF09CD2F16861DD0009C0CE1 /* InvaderBase.cpp in Sources */,
-				BF09CD3416861FAD009C0CE1 /* GlobalData.cpp in Sources */,
 				BFDC4F38168631F10055104A /* LayerResult.cpp in Sources */,
 				BFC623A616875EE100208948 /* LayerPause.cpp in Sources */,
 				BF2BE292168774AE002375F3 /* LayerMissionClear.cpp in Sources */,
 				EE35D3FA168C500D0049FB9B /* StoreItem.cpp in Sources */,
 				EE9656E8169C1D7400C1B289 /* TableViewStore.cpp in Sources */,
 				EE86B17316A00D0E00259012 /* LayerGame.cpp in Sources */,
-				EE86B17516A025E600259012 /* Devourer.cpp in Sources */,
-				EE86B17616A025F200259012 /* ExplodeScore.cpp in Sources */,
-				EE86B17716A0320C00259012 /* BuffManager.cpp in Sources */,
-				EE86B17816A051B100259012 /* DataType.cpp in Sources */,
+				EE7C876516A2AFD000605D65 /* NextMission.cpp in Sources */,
+				EE7C876A16A2B30900605D65 /* TotalGold.cpp in Sources */,
+				EE7C877916A311C300605D65 /* LayerHelp.cpp in Sources */,
+				EE7C877A16A3267800605D65 /* LayerBuy.cpp in Sources */,
+				EE75C80216A57B5C00D138DE /* BuyItem.cpp in Sources */,
+				EE77370E16A6A70200C66919 /* IAPHelper.mm in Sources */,
+				EEC90BF116A71CBB0008553E /* BuffManager.cpp in Sources */,
+				EEC90BF216A71CBB0008553E /* DataType.cpp in Sources */,
+				EEC90BF316A71CBB0008553E /* Devourer.cpp in Sources */,
+				EEC90BF416A71CBB0008553E /* Dialog.cpp in Sources */,
+				EEC90BF516A71CBB0008553E /* ExplodeScore.cpp in Sources */,
+				EEC90BF616A71CBB0008553E /* GlobalData.cpp in Sources */,
+				EEC90BF716A71CBB0008553E /* InvaderBase.cpp in Sources */,
+				EEC90BF816A71CBB0008553E /* InvaderManager.cpp in Sources */,
+				EEC90BF916A71CBB0008553E /* SpellSlot.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		EE35D3DD168C310F0049FB9B /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EE35D3DC168C310F0049FB9B /* en */,
-				EE35D3DE168C311F0049FB9B /* zh-Hans */,
-				EE35D3DF168C312F0049FB9B /* zh-Hant */,
-			);
-			name = Localizable.strings;
-			sourceTree = SOURCE_ROOT;
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		BFFF7D9616726F5D009DBDE5 /* Debug */ = {

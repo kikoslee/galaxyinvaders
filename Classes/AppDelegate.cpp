@@ -6,6 +6,9 @@
 #include "LayerMainLoader.h"
 #include "LayerStoreLoader.h"
 #include "LayerResultLoader.h"
+#include "TotalGoldLoader.h"
+#include "NextMissionLoader.h"
+#include "BuyItemLoader.h"
 
 AppDelegate::AppDelegate()
 {
@@ -41,8 +44,12 @@ bool AppDelegate::applicationDidFinishLaunching()
     // set FPS. the default value is 1.0/60 if you don't call this
     pDirector->setAnimationInterval(1.0 / 60);
     
+    HBScore::initScore();
+    HBPurchase::shared()->init(GDShared->mPurchaseItem);
+    
     GDShared->loadConfigFile("database.xml");
     GDShared->loadUserData();
+    HBLocaShared->readFromFile();
 
 	srand(time(NULL));
 	gCreateInvaders();
@@ -54,8 +61,11 @@ bool AppDelegate::applicationDidFinishLaunching()
     GDShared->startTimes += 1;
     GDShared->saveUserData();
     
+    HBRegistCCBLoader("TotalGold", TotalGoldLoader::loader());
+    HBRegistCCBLoader("NextMission", NextMissionLoader::loader());
+    HBRegistCCBLoader("BuyItem", BuyItemLoader::loader());
+    
 	pDirector->runWithScene(HBSceneLoader("LayerMain", LayerMainLoader::loader()));
-//	pDirector->runWithScene(HBSceneLoader("LayerResult", LayerResultLoader::loader()));
     
     return true;
 }
@@ -65,8 +75,8 @@ void AppDelegate::applicationDidEnterBackground()
 {
     CCDirector::sharedDirector()->stopAnimation();
     CCDirector::sharedDirector()->pause();
-//	GlobalData::shared()->saveUserData();
-	SimpleAudioEngine::sharedEngine()->pauseBackgroundMusic();
+	GDShared->saveUserData();
+	Audio->pauseBackgroundMusic();
 }
 
 // this function will be called when the app is active again
@@ -75,5 +85,5 @@ void AppDelegate::applicationWillEnterForeground()
     CCDirector::sharedDirector()->resume();
     CCDirector::sharedDirector()->startAnimation();
     
-	SimpleAudioEngine::sharedEngine()->resumeBackgroundMusic();
+	Audio->resumeBackgroundMusic();
 }

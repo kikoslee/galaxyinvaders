@@ -89,7 +89,7 @@ void StoreItem::onBtnClicked(CCObject* pSender, CCControlEvent pCCControlEvent)
         }
         else
         {
-//            _gotoLayerBuy();
+            GDShared->showLayerBuy();
         }
     }
     else if (mIndex == 3)
@@ -107,7 +107,7 @@ void StoreItem::onBtnClicked(CCObject* pSender, CCControlEvent pCCControlEvent)
         }
         else
         {
-//            _gotoLayerBuy();   
+            GDShared->showLayerBuy();
         }
     }
     else
@@ -125,7 +125,7 @@ void StoreItem::onBtnClicked(CCObject* pSender, CCControlEvent pCCControlEvent)
         }
         else
         {
-//            _gotoLayerBuy();
+            GDShared->showLayerBuy();
         }
     }
 }
@@ -147,12 +147,14 @@ void StoreItem::updateItem(int index)
         mCount->setVisible(true);
         mCount->setString(fcs("%d", GDShared->getSpellCount(type)));
         mCost->setString(fcs(":%d", sd.equipCost));
+        mDesc->setString(gls(descStr[index]));
     }
     else if (index == 3)
     {
         mCount->setVisible(true);
         mCount->setString(fcs("%d", GDShared->maxLife));
         mCost->setString(fcs(":%d", GDShared->maxLife * 10000));
+        mDesc->setString(gls(descStr[index]));
     }
     else
     {

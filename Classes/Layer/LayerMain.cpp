@@ -1,6 +1,8 @@
 #include "LayerMain.h"
-#include "LayerStoreLoader.h"
 #include "GlobalData.h"
+#include "LayerStoreLoader.h"
+#include "TotalGoldLoader.h"
+#include "NextMissionLoader.h"
 
 LayerMain::LayerMain()
 : mLabelTitle(NULL)
@@ -81,11 +83,11 @@ void LayerMain::onBtnPlay(CCObject* pSender, CCControlEvent pCCControlEvent)
 void LayerMain::onBtnRank(CCObject* pSender, CCControlEvent pCCControlEvent)
 {
 	Audio->playEffect(EF_CLICK);
-//k    HBScore::showBoard("com.liho.galaxyinvaders.totalscore");
+    HBScore::showBoard("com.liho.galaxyinvaders.totalscore");
 }
 
 void LayerMain::onBtnMore(CCObject* pSender, CCControlEvent pCCControlEvent)
 {
 	Audio->playEffect(EF_CLICK);
-//k    HBWebBrowser::gotoUrl("itms-apps://itunes.com/apps/limin");
+    gotoMoreGame();
 }

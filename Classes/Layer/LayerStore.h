@@ -25,19 +25,9 @@ public:
     void onBtnBack(CCObject* pSender, CCControlEvent pCCControlEvent);
     void onBtnGo(CCObject* pSender, CCControlEvent pCCControlEvent);
     
-    void update(float dt);
-    
 private:
-    CCLabelTTF* mTitle;
-    CCLabelTTF* mTotalGold;
-    CCLabelTTF* mMultiplierTitle;
-    CCLabelTTF* mMultiplier;
-    CCLabelTTF* mNextObjTitle;
-    CCLabelTTF* mNextObjName;
-    CCLabelTTF* mNextObjDesc;
-    
+    CCLabelTTF* mLabelTitle;
     CCLayer* mLayerTable;
-    
     CCControlButton* mBtnGo;
     
     TableViewStore* mTable;

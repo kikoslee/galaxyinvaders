@@ -1,9 +1,8 @@
-#include "GlobalData.h"
 #include "LayerGame.h"
-#include "LayerPause.h"
-#include "LayerResult.h"
+#include "GlobalData.h"
+#include "LayerPauseLoader.h"
+#include "LayerResultLoader.h"
 #include "ExplodeScore.h"
-#include "CommonHelper.h"
 
 enum LayerZOrder
 {
@@ -38,17 +37,14 @@ LayerGame::LayerGame()
 , mLabelScore(NULL)
 , mLabelTime(NULL)
 , mLayerGame(NULL)
+, mLifes(NULL)
 , mReady(NULL)
 , mGo(NULL)
 , mFinish(NULL)
 , mTouch(NULL)
-, mActionBlink(NULL)
 , mActionSpeed(NULL)
 , mActionShield(NULL)
-, mActionMiss(NULL)
 {
-	setTouchEnabled(true);
-    
 	mActionMiss = CCSequence::create(CCScaleTo::create(0.3, 1), CCRotateTo::create(0.05, -15), CCRotateTo::create(0.05, 15), CCRotateTo::create(0.05, -15), CCRotateTo::create(0.05, 15), CCRotateTo::create(0.05, -15), CCRotateTo::create(0.05, 15), CCScaleTo::create(0.3, 0), CCHide::create(), NULL);
 	mActionMiss->retain();
     
@@ -97,6 +93,8 @@ bool LayerGame::onAssignCCBMemberVariable(CCObject* pTarget, const char* pMember
 
 void LayerGame::onNodeLoaded(CCNode* pNode, CCNodeLoader* pNodeLoader)
 {
+	setTouchEnabled(true);
+    
     // Invaders
     mInvaders = new InvaderManager;
     mLayerGame->addChild(mInvaders, lzo_invaders);
@@ -153,7 +151,8 @@ void LayerGame::onBtnPause(CCObject* pSender, CCControlEvent pCCControlEvent)
 		return;
 	
 	Audio->playEffect(EF_CLICK);
-//	getParent()->addChild(LayerPause::create(), 10000);
+    onExit();
+	getParent()->addChild(HBLayerLoader("LayerPause", LayerPauseLoader::loader()), 10000);
 }
 
 void LayerGame::_startGame()
@@ -237,7 +236,8 @@ void LayerGame::_updateInvader(float dt)
 			InvaderType type = ib->getType();
 			bool bOut;
 			bOut = ib->updateInvader(dt);
-			
+
+			/* 漏掉黄绿减命功能
 			if(!bOut && (type == IT_Normal_3 || type == IT_Normal_4))
 			{
 				// 漏掉了一个
@@ -268,7 +268,8 @@ void LayerGame::_updateInvader(float dt)
 					_endGame();
 				break;
 			}
-			
+			*/
+            
 			if(mDevourer->checkCollision(ib))
 			{
 				GDShared->curInvadersCount[type]++;
@@ -406,7 +407,8 @@ void LayerGame::_endGame()
 
 void LayerGame::_callResult()
 {
-//k	CCDirector::sharedDirector()->replaceScene(CCTransitionFade::create(0.5, LayerResult::scene(), ccWHITE));
+    CCDirector::sharedDirector()->replaceScene(HBSceneLoader("LayerResult", LayerResultLoader::loader()));
+//	CCDirector::sharedDirector()->replaceScene(CCTransitionFade::create(0.5, HBSceneLoader("LayerResult", LayerResultLoader::loader()), ccWHITE));
 	Audio->playBackgroundMusic(MUSIC_BG1, true);
 }
 

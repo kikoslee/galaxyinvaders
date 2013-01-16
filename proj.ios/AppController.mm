@@ -63,6 +63,13 @@ static AppDelegate s_sharedApplication;
     return YES;
 }
 
+#if __IPAD_OS_VERSION_MAX_ALLOWED >= __IPAD_6_0
+
+- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+{
+    return UIInterfaceOrientationMaskAll;
+}
+#endif
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     /*

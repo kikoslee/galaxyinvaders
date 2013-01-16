@@ -1,47 +1,44 @@
 #ifndef _LayerBuy_H_
 #define _LayerBuy_H_
 
-#include "DataType.h"
+#include "HBCommon.h"
+#include "BuyItem.h"
 
-class LayerBuy : public CCLayer
+class LayerBuy
+: public CCLayer
+, public CCBSelectorResolver
+, public CCBMemberVariableAssigner
+, public CCNodeLoaderListener
 {
-	CCLabelTTF* mLabelCoin;		// 总金币数
-	
-	CCLayer* mParentLayer;		// 调用者所在Layer
-	CCLayer* mLayerList;		// 列表层
+public:
+    LayerBuy();
+    virtual ~LayerBuy();
+    
+    CCB_STATIC_NEW_AUTORELEASE_OBJECT_WITH_INIT_METHOD(LayerBuy, create);
+    
+    virtual SEL_MenuHandler onResolveCCBCCMenuItemSelector(CCObject* pTarget, const char* pSelectorName);
+    virtual SEL_CCControlHandler onResolveCCBCCControlSelector(CCObject* pTarget, const char* pSelectorName);
+    virtual bool onAssignCCBMemberVariable(CCObject* pTarget, const char* pMemberVariableName, CCNode* pNode);
+    virtual void onNodeLoaded(CCNode* pNode, CCNodeLoader* pNodeLoader);
 
-	CCMenu* mMenuMain;			// 全局按钮
-	CCMenu* mMenuFree;			// 列表按钮
-
-	CCPoint mLastPos;			// 上次点击位置
-	CCTouch* mTouch;			// 点击指针
-	
-	int mCurListCount;			// 当前列表中的数量
-
-	// 更新总金币数
-	void _updateGoldCount();
-	// 创建列表
-	void _createList();
-	// 更新列表位置
-	void _resetListLayer(CCTouch* touch);
-	// 菜单按钮回调
-	void _menuCallback(CCObject* sender);
+    void onBtnClose(CCObject* pSender, CCControlEvent pCCControlEvent);
+    
+    virtual bool ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent);
+    
+    void purchaseStart(int index);
+    void purchaseSuccess(CCString* itemName);
+    void purchaseFailed(CCString* itemName);
+    
+private:
+    CCLabelTTF* mLabelTitle;
+    BuyItem* mBuyItem[6];
+    CCControlButton* mBtnClose;
+    CCLayerColor* mLayerBase;
+    CCLayerColor* mLayerMask;
+    CCLabelTTF* mLabelPurchase;
+    
 	// 销毁层
 	void _destroyLayer();
-
-public:
-	bool init();
-	CREATE_FUNC(LayerBuy);
-
-	void update(float dt);
-    
-    void onEnter();
-    void onExit();
-
-	bool ccTouchBegan(CCTouch* touch, CCEvent *event);
-	void ccTouchMoved(CCTouch* touch, CCEvent *pEvent);
-	void ccTouchEnded(CCTouch* touch, CCEvent *pEvent);
-	void ccTouchCancelled(CCTouch* touch, CCEvent *pEvent);
 };
 
 #endif

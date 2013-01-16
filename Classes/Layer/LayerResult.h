@@ -19,39 +19,32 @@ public:
     virtual SEL_CCControlHandler onResolveCCBCCControlSelector(CCObject* pTarget, const char* pSelectorName);
     virtual bool onAssignCCBMemberVariable(CCObject* pTarget, const char* pMemberVariableName, CCNode* pNode);
     virtual void onNodeLoaded(CCNode* pNode, CCNodeLoader* pNodeLoader);
-    //
-    //    void onMenuTestClicked(CCObject* pSender, CCControlEvent pCCControlEvent);
+
+    void onBtnContinue(CCObject* pSender, CCControlEvent pCCControlEvent);
+    
+    virtual void update(float dt);
     
 private:
 	bool mMissionClear;		// 当前任务是否达成
-	CCLabelTTF* mLabelMulti;
+
     CCLabelTTF* mLabelGold;
-    
-    CCLabelTTF* mLabelInvaderCount[4];
+    CCLabelTTF* mLabelCount[4];
     CCLabelTTF* mLabelScore;
     CCLabelTTF* mLabelLastTime;
+    CCLabelTTF* mLabelTitle;
     
-    CCLabelTTF* mGoalName;
-    CCLabelTTF* mGoalDesc;
+    CCControlButton* mBtnContinue;
     
     float mCurTime;
     int mCurStep;
     
 	void _menuCallback(CCObject* sender);
-	void _createLayer();
 	void _checkMission();
 	void _dialogReturn();
-    void _refreshView();
 	
     void _showMissionClear();
 	void _clearShowFinish();		// Clear标签出现动画完成
 	void _addMultiFinish(CCObject* object);
-    
-public:
-//	bool init();  
-		
-//    void update(float dt);
-//	bool ccTouchBegan(CCTouch* touch, CCEvent *event);
 };
 
 #endif

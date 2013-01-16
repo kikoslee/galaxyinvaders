@@ -1,17 +1,17 @@
-#ifndef _LayerResultLoader_H_
-#define _LayerResultLoader_H_
+#ifndef _LayerBuyLoader_H_
+#define _LayerBuyLoader_H_
 
-#include "LayerResult.h"
+#include "LayerBuy.h"
 
 class CCBReader;
 
-class LayerResultLoader : public CCLayerLoader
+class LayerBuyLoader : public CCLayerLoader
 {
     public:
-        CCB_STATIC_NEW_AUTORELEASE_OBJECT_METHOD(LayerResultLoader, loader);
+        CCB_STATIC_NEW_AUTORELEASE_OBJECT_METHOD(LayerBuyLoader, loader);
 
     protected:
-        CCB_VIRTUAL_NEW_AUTORELEASE_CREATECCNODE_METHOD(LayerResult);
+        CCB_VIRTUAL_NEW_AUTORELEASE_CREATECCNODE_METHOD(LayerBuy);
 };
 
 #endif

@@ -543,6 +543,7 @@ CCNode * CCBReader::readNodeGraph(CCNode * pParent) {
         memberVarAssignmentName = this->readCachedString();
     }
 
+    CCLog("HBCCBReader: className [%s]", className.c_str());
     CCNodeLoader *ccNodeLoader = this->mCCNodeLoaderLibrary->getCCNodeLoader(className.c_str());
     if (! ccNodeLoader)
     {
