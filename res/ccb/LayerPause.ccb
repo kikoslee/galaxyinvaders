@@ -356,7 +356,7 @@
 						<string>SpriteFrame</string>
 						<key>value</key>
 						<array>
-							<string>icons.plist</string>
+							<string>layerui.plist</string>
 							<string>icon_obj.png</string>
 						</array>
 					</dict>
@@ -2154,7 +2154,7 @@
 						<string>SpriteFrame</string>
 						<key>value</key>
 						<array>
-							<string>icons.plist</string>
+							<string>layerui.plist</string>
 							<string>btn_sound_on.png</string>
 						</array>
 					</dict>
@@ -2177,7 +2177,7 @@
 						<string>SpriteFrame</string>
 						<key>value</key>
 						<array>
-							<string>icons.plist</string>
+							<string>layerui.plist</string>
 							<string>btn_sound_on.png</string>
 						</array>
 					</dict>
@@ -2200,7 +2200,7 @@
 						<string>SpriteFrame</string>
 						<key>value</key>
 						<array>
-							<string>icons.plist</string>
+							<string>layerui.plist</string>
 							<string>btn_sound_on.png</string>
 						</array>
 					</dict>
@@ -2362,7 +2362,7 @@
 						<string>SpriteFrame</string>
 						<key>value</key>
 						<array>
-							<string>icons.plist</string>
+							<string>layerui.plist</string>
 							<string>btn-help.png</string>
 						</array>
 					</dict>
@@ -2385,7 +2385,7 @@
 						<string>SpriteFrame</string>
 						<key>value</key>
 						<array>
-							<string>icons.plist</string>
+							<string>layerui.plist</string>
 							<string>btn-help.png</string>
 						</array>
 					</dict>
@@ -2408,7 +2408,7 @@
 						<string>SpriteFrame</string>
 						<key>value</key>
 						<array>
-							<string>icons.plist</string>
+							<string>layerui.plist</string>
 							<string>btn-help.png</string>
 						</array>
 					</dict>
@@ -2570,7 +2570,7 @@
 						<string>SpriteFrame</string>
 						<key>value</key>
 						<array>
-							<string>icons.plist</string>
+							<string>layerui.plist</string>
 							<string>btn1.png</string>
 						</array>
 					</dict>
@@ -2593,7 +2593,7 @@
 						<string>SpriteFrame</string>
 						<key>value</key>
 						<array>
-							<string>icons.plist</string>
+							<string>layerui.plist</string>
 							<string>btn1.png</string>
 						</array>
 					</dict>
@@ -2616,7 +2616,7 @@
 						<string>SpriteFrame</string>
 						<key>value</key>
 						<array>
-							<string>icons.plist</string>
+							<string>layerui.plist</string>
 							<string>btn1.png</string>
 						</array>
 					</dict>
@@ -2633,8 +2633,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>baseClass</key>
@@ -2780,7 +2778,7 @@
 						<string>SpriteFrame</string>
 						<key>value</key>
 						<array>
-							<string>icons.plist</string>
+							<string>layerui.plist</string>
 							<string>btn1.png</string>
 						</array>
 					</dict>
@@ -2803,7 +2801,7 @@
 						<string>SpriteFrame</string>
 						<key>value</key>
 						<array>
-							<string>icons.plist</string>
+							<string>layerui.plist</string>
 							<string>btn1.png</string>
 						</array>
 					</dict>
@@ -2826,7 +2824,7 @@
 						<string>SpriteFrame</string>
 						<key>value</key>
 						<array>
-							<string>icons.plist</string>
+							<string>layerui.plist</string>
 							<string>btn1.png</string>
 						</array>
 					</dict>
@@ -2843,6 +2841,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>

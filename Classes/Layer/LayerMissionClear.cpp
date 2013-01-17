@@ -83,7 +83,7 @@ void LayerMissionClear::onNodeLoaded(CCNode* pNode, CCNodeLoader* pNodeLoader)
     
     mLabelGold->setString("+500");
     
-    mLabelMultiTitle->setString(fcs("%s:", gls("Multiplier:")));
+    mLabelMultiTitle->setString(fcs("%s:", gls("Multiplier")));
     mLabelMulti->setString("+1");
     
     mLabelCurObjName->setString(GDShared->getCurObjName());

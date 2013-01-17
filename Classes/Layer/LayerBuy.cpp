@@ -104,17 +104,20 @@ bool LayerBuy::ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent)
 
 void LayerBuy::purchaseStart(int index)
 {
+    HBUmeng::event("Purchase", fcs("Start: %d", GDShared->mPurchaseItem[index].c_str()));
     mLayerMask->setVisible(true);
     HBPurchase::shared()->purchaseItem(index, this, callfuncO_selector(LayerBuy::purchaseSuccess), callfuncO_selector(LayerBuy::purchaseFailed));
 }
 
 void LayerBuy::purchaseSuccess(CCString* itemName)
 {
+    HBUmeng::event("Purchase", fcs("Success: %s", itemName->getCString()));
     mLayerMask->setVisible(false);
     GDShared->addPurchaseGold(itemName->getCString());
 }
 
 void LayerBuy::purchaseFailed(CCString* itemName)
 {
+    HBUmeng::event("Purchase", fcs("Failed: %s", itemName->getCString()));
     mLayerMask->setVisible(false);
 }

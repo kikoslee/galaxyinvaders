@@ -12,6 +12,7 @@
 #import "AppDelegate.h"
 
 #import "RootViewController.h"
+#import "BannerAdViewController.h"
 
 @implementation AppController
 
@@ -59,12 +60,15 @@ static AppDelegate s_sharedApplication;
 
     [[UIApplication sharedApplication] setStatusBarHidden: YES];
 
+    BannerAdViewController* vc = [[BannerAdViewController alloc] init];
+    [vc.view setMultipleTouchEnabled:YES];
+    [viewController.view addSubview:vc.view];
+    
     cocos2d::CCApplication::sharedApplication()->run();
     return YES;
 }
 
 #if __IPAD_OS_VERSION_MAX_ALLOWED >= __IPAD_6_0
-
 - (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
 {
     return UIInterfaceOrientationMaskAll;

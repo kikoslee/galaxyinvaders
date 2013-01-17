@@ -154,7 +154,7 @@
 						<string>SpriteFrame</string>
 						<key>value</key>
 						<array>
-							<string>icons.plist</string>
+							<string>layerui.plist</string>
 							<string>icon_gold.png</string>
 						</array>
 					</dict>
@@ -177,7 +177,7 @@
 						<string>SpriteFrame</string>
 						<key>value</key>
 						<array>
-							<string>icons.plist</string>
+							<string>layerui.plist</string>
 							<string>icon_gold.png</string>
 						</array>
 					</dict>
@@ -200,7 +200,7 @@
 						<string>SpriteFrame</string>
 						<key>value</key>
 						<array>
-							<string>icons.plist</string>
+							<string>layerui.plist</string>
 							<string>icon_gold.png</string>
 						</array>
 					</dict>
@@ -751,8 +751,6 @@
 				<false/>
 			</dict>
 		</array>
-		<key>selected</key>
-		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>

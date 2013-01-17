@@ -81,6 +81,7 @@ void StoreItem::onBtnClicked(CCObject* pSender, CCControlEvent pCCControlEvent)
         
         if (GDShared->gold >= cost)
         {
+            HBUmeng::event("BuyItem", fcs("%s", name[mIndex]));
             Audio->playEffect(EF_EQUIPSPELL);
             GDShared->gold -= cost;
             GDShared->spellCount[type]++;
@@ -99,6 +100,7 @@ void StoreItem::onBtnClicked(CCObject* pSender, CCControlEvent pCCControlEvent)
         int cost = level * 10000;
         if (GDShared->gold >= cost)
         {
+            HBUmeng::event("BuyItem", fcs("%s", name[mIndex]));
             Audio->playEffect(EF_UPSPELL);
             GDShared->gold -= cost;
             GDShared->maxLife++;
@@ -117,6 +119,7 @@ void StoreItem::onBtnClicked(CCObject* pSender, CCControlEvent pCCControlEvent)
         
         if (GDShared->gold >= cost)
         {
+            HBUmeng::event("BuyItem", fcs("%s", name[mIndex]));
             Audio->playEffect(EF_UPSPELL);
             GDShared->spellLevel[type]++;
             GDShared->gold -= cost;

@@ -35,6 +35,8 @@ private:
     void onBtnHelp(CCObject* pSender, CCControlEvent pCCControlEvent);
     void onBtnExit(CCObject* pSender, CCControlEvent pCCControlEvent);
     void onBtnContinue(CCObject* pSender, CCControlEvent pCCControlEvent);
+    
+    void _refreshSoundBtn();
 };
 
 #endif

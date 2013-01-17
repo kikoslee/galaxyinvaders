@@ -52,6 +52,7 @@ void LayerStore::onNodeLoaded(CCNode* pNode, CCNodeLoader* pNodeLoader)
 
 void LayerStore::onBtnGo(CCObject* pSender, CCControlEvent pCCControlEvent)
 {
+    HBUmeng::event("Button", "StoreGo");
 	Audio->playEffect(EF_CLICK);
     if (GDShared->isFirstTime)
     {

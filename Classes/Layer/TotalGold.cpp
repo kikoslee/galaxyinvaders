@@ -36,19 +36,20 @@ bool TotalGold::onAssignCCBMemberVariable(CCObject* pTarget, const char* pMember
 
 void TotalGold::onNodeLoaded(CCNode* pNode, CCNodeLoader* pNodeLoader)
 {
-    mLabelGold->setString(fcs("%s", HBCommaPrint(GDShared->gold)));
+    mLabelGold->setString(fcs("%s", HBCommaPrint(GDShared->gold).c_str()));
     scheduleUpdate();
 }
 
 void TotalGold::onBtnGold(CCObject* pSender, CCControlEvent pCCControlEvent)
 {
+    HBUmeng::event("Button", "TotalGold");
 	Audio->playEffect(EF_CLICK);
     GDShared->showLayerBuy();
 }
 
 void TotalGold::update(float dt)
 {
-    mLabelGold->setString(fcs("%s", HBCommaPrint(GDShared->gold)));
+    mLabelGold->setString(fcs("%s", HBCommaPrint(GDShared->gold).c_str()));
 }
 
 void TotalGold::enableBtn(bool enable)

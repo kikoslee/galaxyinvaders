@@ -74,12 +74,28 @@ void LayerPause::onNodeLoaded(CCNode* pNode, CCNodeLoader* pNodeLoader)
     
 	for( int i = 0; i < INVADERS_COUNT - 2; i++)
         mLabelCount[i]->setString(fcs("x %d", GDShared->curInvadersCount[i]));
+
+    _refreshSoundBtn();
+}
+
+void LayerPause::_refreshSoundBtn()
+{
+    CCSpriteFrameCache* cache = CCSpriteFrameCache::sharedSpriteFrameCache();
+    if (GDShared->isMusicOn)
+        mBtnSound->setBackgroundSpriteFrameForState(cache->spriteFrameByName("btn_sound_on.png"), CCControlStateNormal);
+    else
+        mBtnSound->setBackgroundSpriteFrameForState(cache->spriteFrameByName("btn_sound_off.png"), CCControlStateNormal);
+
+    Audio->setBackgroundMusicVolume(GDShared->isMusicOn ? 0.7 : 0);
+    Audio->setEffectsVolume(GDShared->isMusicOn ? 1 : 0);
 }
 
 void LayerPause::onBtnSound(CCObject* pSender, CCControlEvent pCCControlEvent)
 {
 	Audio->playEffect(EF_CLICK);
-    
+    GDShared->isMusicOn = !GDShared->isMusicOn;
+    GDShared->saveUserData();
+    _refreshSoundBtn();
 }
 
 void LayerPause::onBtnHelp(CCObject* pSender, CCControlEvent pCCControlEvent)

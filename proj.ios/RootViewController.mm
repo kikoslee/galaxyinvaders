@@ -41,15 +41,15 @@
 }
 
 // For ios6, use supportedInterfaceOrientations & shouldAutorotate instead
+#if __IPAD_OS_VERSION_MAX_ALLOWED >= __IPAD_6_0
 - (NSUInteger) supportedInterfaceOrientations{
-#ifdef __IPHONE_6_0
     return UIInterfaceOrientationMaskLandscape;
-#endif
 }
 
 - (BOOL) shouldAutorotate {
     return YES;
 }
+#endif
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.

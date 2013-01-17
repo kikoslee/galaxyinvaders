@@ -119,7 +119,7 @@ void LayerGame::onNodeLoaded(CCNode* pNode, CCNodeLoader* pNodeLoader)
     mLabelLifeCount->setString(fcs("x %d", mLifeCount));
 
     // 金币总数
-	mLabelGold->setString(fcs("%s", HBCommaPrint(GDShared->gold)));
+	mLabelGold->setString(fcs("%s", HBCommaPrint(GDShared->gold).c_str()));
 
     mLifes->runAction(CCRepeatForever::create(CCRotateBy::create(1, -360)));
     
@@ -200,8 +200,8 @@ void LayerGame::update(float dt)
 	_updateInvader(dt);
 	mBuff->updateBuff(dt);
     
-	mLabelScore->setString(fcs("%s", HBCommaPrint(GDShared->curScore)));
-	mLabelGold->setString(fcs("%s", HBCommaPrint(GDShared->gold)));
+	mLabelScore->setString(fcs("%s", HBCommaPrint(GDShared->curScore).c_str()));
+	mLabelGold->setString(fcs("%s", HBCommaPrint(GDShared->gold).c_str()));
 	
 	int sec;
 	sec =  (int)mTimePassed;

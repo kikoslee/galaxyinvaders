@@ -5,6 +5,7 @@
 LayerHelp::LayerHelp()
 : mLabelContinue(NULL)
 , mBg(NULL)
+, mIsInGame(false)
 {
     for (int i = 0; i < 3; i++)
         mLabelHelp[i] = NULL;

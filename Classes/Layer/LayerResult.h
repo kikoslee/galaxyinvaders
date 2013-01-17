@@ -21,6 +21,7 @@ public:
     virtual void onNodeLoaded(CCNode* pNode, CCNodeLoader* pNodeLoader);
 
     void onBtnContinue(CCObject* pSender, CCControlEvent pCCControlEvent);
+    void onBtnReivew(CCObject* pSender, CCControlEvent pCCControlEvent);
     
     virtual void update(float dt);
     
@@ -32,7 +33,8 @@ private:
     CCLabelTTF* mLabelScore;
     CCLabelTTF* mLabelLastTime;
     CCLabelTTF* mLabelTitle;
-    
+    CCLabelTTF* mLabelRewardGold;
+    CCSprite* mIconReward;
     CCControlButton* mBtnContinue;
     
     float mCurTime;

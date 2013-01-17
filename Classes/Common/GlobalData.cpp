@@ -14,12 +14,12 @@ GlobalData::GlobalData()
     mPurchaseItem.push_back("com.liho.galaxyinvaders.coin5");
     mPurchaseItem.push_back("com.liho.galaxyinvaders.coin6");
     
-    mPurchaseGold.push_back(1000);
-    mPurchaseGold.push_back(2000);
-    mPurchaseGold.push_back(3000);
-    mPurchaseGold.push_back(4000);
-    mPurchaseGold.push_back(5000);
-    mPurchaseGold.push_back(6000);
+    mPurchaseGold.push_back(2500);
+    mPurchaseGold.push_back(12500);
+    mPurchaseGold.push_back(25000);
+    mPurchaseGold.push_back(55000);
+    mPurchaseGold.push_back(162500);
+    mPurchaseGold.push_back(375000);
     
     mDefaultPurchaseFee.push_back("$0.99");
     mDefaultPurchaseFee.push_back("$4.99");
@@ -335,7 +335,7 @@ void GlobalData::initUserData()
 {
 	// 初始化数据
 	isMusicOn = true;
-	gold = 20000;
+	gold = 5000;
 	isReview = false;
 	curObj = 0;
 	multiplier = 1;

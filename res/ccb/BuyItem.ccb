@@ -76,7 +76,7 @@
 						<string>SpriteFrame</string>
 						<key>value</key>
 						<array>
-							<string>icons.plist</string>
+							<string>layerui.plist</string>
 							<string>icon_buy6.png</string>
 						</array>
 					</dict>
@@ -482,7 +482,7 @@
 						<string>SpriteFrame</string>
 						<key>value</key>
 						<array>
-							<string>icons.plist</string>
+							<string>layerui.plist</string>
 							<string>btn_buy.png</string>
 						</array>
 					</dict>
@@ -505,7 +505,7 @@
 						<string>SpriteFrame</string>
 						<key>value</key>
 						<array>
-							<string>icons.plist</string>
+							<string>layerui.plist</string>
 							<string>btn_buy.png</string>
 						</array>
 					</dict>
@@ -528,7 +528,7 @@
 						<string>SpriteFrame</string>
 						<key>value</key>
 						<array>
-							<string>icons.plist</string>
+							<string>layerui.plist</string>
 							<string>btn_buy.png</string>
 						</array>
 					</dict>
@@ -545,8 +545,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>baseClass</key>
@@ -622,7 +620,7 @@
 						<string>SpriteFrame</string>
 						<key>value</key>
 						<array>
-							<string>icons.plist</string>
+							<string>layerui.plist</string>
 							<string>icon_save1.png</string>
 						</array>
 					</dict>

@@ -20,15 +20,6 @@ LayerMain::~LayerMain()
     CC_SAFE_RELEASE(mBtnSound);
 }
 
-void LayerMain::onNodeLoaded(CCNode* pNode, CCNodeLoader* pNodeLoader)
-{
-    mLabelTitle->setString(gls("Current Mission"));
-    mLabelCurObjName->setString(GDShared->getCurObjName());
-    mLabelCurObjDesc->setString(GDShared->getCurObjDesc());
-
-	_refreshSoundBtn();
-}
-
 SEL_MenuHandler LayerMain::onResolveCCBCCMenuItemSelector(CCObject* pTarget, const char* pSelectorName)
 {
     return NULL;
@@ -50,6 +41,15 @@ bool LayerMain::onAssignCCBMemberVariable(CCObject* pTarget, const char* pMember
     CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mBtnSound", CCControlButton*, mBtnSound);
     CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mLabelTitle", CCLabelTTF*, mLabelTitle);
     return false;
+}
+
+void LayerMain::onNodeLoaded(CCNode* pNode, CCNodeLoader* pNodeLoader)
+{
+    mLabelTitle->setString(gls("Current Mission"));
+    mLabelCurObjName->setString(GDShared->getCurObjName());
+    mLabelCurObjDesc->setString(GDShared->getCurObjDesc());
+    
+	_refreshSoundBtn();
 }
 
 void LayerMain::_refreshSoundBtn()
@@ -76,6 +76,7 @@ void LayerMain::onBtnSound(CCObject* pSender, CCControlEvent pCCControlEvent)
 
 void LayerMain::onBtnPlay(CCObject* pSender, CCControlEvent pCCControlEvent)
 {
+    HBUmeng::event("Button", "MainPlay");
 	Audio->playEffect(EF_CLICK);
     CCDirector::sharedDirector()->replaceScene(CCTransitionFade::create(0.5, HBSceneLoader("LayerStore", LayerStoreLoader::loader())));
 }
@@ -88,6 +89,7 @@ void LayerMain::onBtnRank(CCObject* pSender, CCControlEvent pCCControlEvent)
 
 void LayerMain::onBtnMore(CCObject* pSender, CCControlEvent pCCControlEvent)
 {
+    HBUmeng::event("Button", "MainMore");
 	Audio->playEffect(EF_CLICK);
     gotoMoreGame();
 }

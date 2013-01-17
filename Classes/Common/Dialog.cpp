@@ -1,5 +1,4 @@
 #include "Dialog.h"
-#include "CommonHelper.h"
 
 void Dialog::_initWithType(DialogType type, const char* msg, CCNode* parent, int tag)
 {

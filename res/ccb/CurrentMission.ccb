@@ -88,11 +88,13 @@
 						<string>SpriteFrame</string>
 						<key>value</key>
 						<array>
-							<string>icons.plist</string>
+							<string>layerui.plist</string>
 							<string>icon_obj.png</string>
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>baseClass</key>
