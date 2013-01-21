@@ -554,8 +554,6 @@
 								</array>
 							</dict>
 						</array>
-						<key>selected</key>
-						<true/>
 					</dict>
 					<dict>
 						<key>baseClass</key>
@@ -623,7 +621,7 @@
 								<string>BlockCCControl</string>
 								<key>value</key>
 								<array>
-									<string>onBtnClose</string>
+									<string>onBtnCancel</string>
 									<integer>1</integer>
 									<integer>32</integer>
 								</array>
@@ -764,6 +762,8 @@
 								</array>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 					</dict>
 					<dict>
 						<key>baseClass</key>

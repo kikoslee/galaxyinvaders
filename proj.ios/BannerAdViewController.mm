@@ -88,15 +88,20 @@
 
 - (void)adMoGoDidReceiveAd:(AdMoGoView *)adMoGoView {
 //    NSLog(@"广告接收成功回调");
-    CGRect bounds = [[UIScreen mainScreen] applicationFrame];
+//    CGRect bounds = [[UIScreen mainScreen] applicationFrame];
     CGRect rc = adMoGoView.frame;
-    rc.origin.x = 40;
 //    rc.origin.x = (bounds.size.width - rc.size.width) / 2;
-if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-    rc.origin.y = (768 - rc.size.height);
-else    
-    rc.origin.y = (bounds.size.height - rc.size.height);
-
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    {
+        rc.origin.x = 40;
+        rc.origin.y = (768 - rc.size.height);
+    }
+    else
+    {
+        rc.origin.x = 10;
+        rc.origin.y = (320 - rc.size.height);
+    }
+    
     adMoGoView.frame = rc;
 }
 
