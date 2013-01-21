@@ -51,7 +51,11 @@ bool AppDelegate::applicationDidFinishLaunching()
     HBUmeng::startup();
     HBUmeng::updateConfig();
     
+#if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
+#else
     HBScore::initScore();
+#endif
+    
     HBPurchase::shared()->init(GDShared->mPurchaseItem);
     
     GDShared->loadConfigFile("database.xml");

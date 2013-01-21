@@ -95,8 +95,11 @@ void LayerResult::onNodeLoaded(CCNode* pNode, CCNodeLoader* pNodeLoader)
 	
     scheduleUpdate();
     
+#if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
+#else
     HBScore::reportScore("com.liho.galaxyinvaders.totalscore", GDShared->curScore);
     HBScore::reportScore("com.liho.galaxyinvaders.survivaltime", GDShared->curLastTime);
+#endif
     
     mCurTime = 0;
     mCurStep = 0;

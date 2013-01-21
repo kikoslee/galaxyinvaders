@@ -85,7 +85,10 @@ void LayerMain::onBtnPlay(CCObject* pSender, CCControlEvent pCCControlEvent)
 void LayerMain::onBtnRank(CCObject* pSender, CCControlEvent pCCControlEvent)
 {
 	Audio->playEffect(EF_CLICK);
+#if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
+#else
     HBScore::showBoard("com.liho.galaxyinvaders.totalscore");
+#endif
 }
 
 void LayerMain::onBtnMore(CCObject* pSender, CCControlEvent pCCControlEvent)

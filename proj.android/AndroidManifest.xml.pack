@@ -22,7 +22,7 @@
 
         <!-- 游戏核心各种定义 start -->
         <activity android:name=".LogoWindow"
-            android:screenOrientation="portrait"
+            android:screenOrientation="landscape"
             android:configChanges="orientation" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

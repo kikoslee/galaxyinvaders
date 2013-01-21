@@ -3,7 +3,7 @@
 
 #get current path
 direc=$(pwd) 
-projName=balloon
+projName=galaxyinvader
 #echo $direc  
 
 #拷贝xml文件
