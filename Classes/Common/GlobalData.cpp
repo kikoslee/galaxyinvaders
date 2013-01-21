@@ -36,7 +36,12 @@ GlobalData::~GlobalData()
 void GlobalData::loadConfigFile(const char* file)
 {
 	const char *pszPath = CCFileUtils::sharedFileUtils()->fullPathFromRelativePath(file);
-	xmlDocPtr doc = xmlReadFile(pszPath, "utf-8", XML_PARSE_RECOVER);
+    
+    unsigned long size;
+    unsigned char* pBytes = CCFileUtils::sharedFileUtils()->getFileData(pszPath, "rb", &size);
+    
+	xmlDocPtr doc = xmlReadMemory((const char*)pBytes, size, NULL, "utf-8", XML_PARSE_RECOVER);
+    //    xmlReadFile(pszPath, "utf-8", XML_PARSE_RECOVER);
 	
 	xmlNodePtr rootNode;
 	xmlNodePtr curNode = NULL;

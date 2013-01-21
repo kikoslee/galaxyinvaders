@@ -1,3 +1,16 @@
 *.DS_Store
 proj.ios/galaxyinvaders.xcodeproj/project.xcworkspace/*
 proj.ios/galaxyinvaders.xcodeproj/xcuserdata/*
+
+proj.android/obj/*
+proj.android/bin/*
+proj.android/gen/*
+proj.android/assets/*
+proj.android/assets/sounds/*
+proj.android/libs/armeabi/libgame.so
+proj.android/dependence/framework/.settings
+proj.android/dependence/framework/bin/*
+proj.android/dependence/framework/obj/*
+proj.android/dependence/framework/gen/*
+
+workspace.android/*

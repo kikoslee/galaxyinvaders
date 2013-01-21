@@ -10,6 +10,7 @@ LayerMain::LayerMain()
 , mLabelCurObjDesc(NULL)
 , mBtnSound(NULL)
 {
+    setKeypadEnabled(true);
 }
 
 LayerMain::~LayerMain()
@@ -92,4 +93,13 @@ void LayerMain::onBtnMore(CCObject* pSender, CCControlEvent pCCControlEvent)
     HBUmeng::event("Button", "MainMore");
 	Audio->playEffect(EF_CLICK);
     gotoMoreGame();
+}
+
+//for android
+void LayerMain::keyBackClicked()
+{
+#if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
+    HBExitApplication();
+    
+#endif // CC_PLATFORM_ANDROID
 }

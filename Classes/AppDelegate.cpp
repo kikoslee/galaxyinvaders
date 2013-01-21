@@ -20,22 +20,25 @@ AppDelegate::~AppDelegate()
 
 bool AppDelegate::applicationDidFinishLaunching()
 {
+    CCLog("AppDelegate::applicationDidFinishLaunching() start");
     CCDirector *pDirector = CCDirector::sharedDirector();
     pDirector->setOpenGLView(CCEGLView::sharedOpenGLView());
     pDirector->setProjection(kCCDirectorProjection2D);
     
     CCSize screenSize = CCEGLView::sharedOpenGLView()->getFrameSize();
-    
+
+    CCLog("AppDelegate::applicationDidFinishLaunching() frameWidth:%f, frameHeight:%f", screenSize.width, screenSize.height);
+
     CCFileUtils::sharedFileUtils()->setResourceDirectory("images");
     pDirector->setContentScaleFactor(1);
     if (screenSize.height > 640)
-        CCEGLView::sharedOpenGLView()->setDesignResolutionSize(1024, 768, kResolutionShowAll);
+        CCEGLView::sharedOpenGLView()->setDesignResolutionSize(1024, 768, kResolutionExactFit);
     else
     {
         if (screenSize.width > 960)
-            CCEGLView::sharedOpenGLView()->setDesignResolutionSize(1136, 640, kResolutionShowAll);
+            CCEGLView::sharedOpenGLView()->setDesignResolutionSize(1136, 640, kResolutionExactFit);
         else
-            CCEGLView::sharedOpenGLView()->setDesignResolutionSize(960, 640, kResolutionShowAll);
+            CCEGLView::sharedOpenGLView()->setDesignResolutionSize(960, 640, kResolutionExactFit);
     }
     
     // turn on display FPS
@@ -44,6 +47,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     // set FPS. the default value is 1.0/60 if you don't call this
     pDirector->setAnimationInterval(1.0 / 60);
     
+
     HBUmeng::startup();
     HBUmeng::updateConfig();
     
@@ -70,6 +74,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     
 	pDirector->runWithScene(HBSceneLoader("LayerMain", LayerMainLoader::loader()));
     
+    CCLog("AppDelegate::applicationDidFinishLaunching() end");
     return true;
 }
 
