@@ -37,27 +37,28 @@ public class galaxyinvader extends Application {
      * @brief  应用程序建立函数。
      */
     public void onCreate() {
-        //Log.d(TAG, "onCreate() start");
+    	super.onCreate();
+        HBDefine.HBLog("galaxyinvader::onCreate() start");
 
         mContext = this;
 
         //设定设备语言代码
         _initLanguage();
-
-		//Log.d(TAG, "onCreate() end");
+        
+        HBDefine.HBLog("galaxyinvader::onCreate() end");
     }
-
+    
     /**
      * @brief     打开网页函数。
      * @param[in] url 网页地址。
      */
     public static void gotoUrl(String url) {
-        //Log.d(TAG, "gotoUrl() start");
+        HBDefine.HBLog("galaxyinvader::gotoUrl() start");
 
         if (mContext != null) {
             Bundle bundle = new Bundle();
-            Intent intent = new Intent(Define.Action.ACTION);
-            bundle.putInt("TYPE", Define.MessageID.WEB_BROWSER);
+            Intent intent = new Intent(HBDefine.Action.ACTION);
+            bundle.putInt("TYPE", HBDefine.MessageID.WEB_BROWSER);
             bundle.putString("URL", url);
             intent.putExtras(bundle);
             mContext.sendBroadcast(intent);
@@ -66,19 +67,19 @@ public class galaxyinvader extends Application {
             Log.e(TAG, "gotoUrl(): mContext is NULL.");
         }
 
-        //Log.d(TAG, "gotoUrl() end");
+        HBDefine.HBLog("galaxyinvader::gotoUrl() end");
     }
 
     /**
      * @brief  评价函数。
      */
     public static void gotoReview() {
-        //Log.d(TAG, "gotoReview() start");
+        HBDefine.HBLog("galaxyinvader::gotoReview() start");
 
         if (mContext != null) {
             Bundle bundle = new Bundle();
-            Intent intent = new Intent(Define.Action.ACTION);
-            bundle.putInt("TYPE", Define.MessageID.GOTO_REVIEW);
+            Intent intent = new Intent(HBDefine.Action.ACTION);
+            bundle.putInt("TYPE", HBDefine.MessageID.GOTO_REVIEW);
             intent.putExtras(bundle);
             mContext.sendBroadcast(intent);
         }
@@ -86,7 +87,7 @@ public class galaxyinvader extends Application {
             Log.e(TAG, "gotoReview(): mContext is NULL.");
         }
 
-        //Log.d(TAG, "gotoReview() end");
+        HBDefine.HBLog("galaxyinvader::gotoReview() end");
     }
     
     /**
@@ -94,12 +95,12 @@ public class galaxyinvader extends Application {
      * @param[in] context 上下文。
      */
     public static void gotoMoreGame() {
-        //Log.d(TAG, "gotoMoreGame() start");
+        HBDefine.HBLog("galaxyinvader::gotoMoreGame() start");
 
         if (mContext != null) {
             Bundle bundle = new Bundle();
-            Intent intent = new Intent(Define.Action.ACTION);
-            bundle.putInt("TYPE", Define.MessageID.GOTO_MOREGAME);
+            Intent intent = new Intent(HBDefine.Action.ACTION);
+            bundle.putInt("TYPE", HBDefine.MessageID.GOTO_MOREGAME);
             intent.putExtras(bundle);
             mContext.sendBroadcast(intent);
         }
@@ -107,7 +108,7 @@ public class galaxyinvader extends Application {
             Log.e(TAG, "gotoMoreGame(): mContext is NULL.");
         }
 
-        //Log.d(TAG, "gotoMoreGame() end");
+        HBDefine.HBLog("galaxyinvader::gotoMoreGame() end");
     }
     
     /**
@@ -116,11 +117,11 @@ public class galaxyinvader extends Application {
      * @return    Umeng在线参数。
      */
     public static int umengGetParamValue(String name) {
-        //Log.d(TAG, "umengGetParamValue() start");
+        HBDefine.HBLog("galaxyinvader::umengGetParamValue() start");
 
         int ret = UmengSDK.getConfigIntParams(mContext, name, 0);
 
-        //Log.d(TAG, "umengGetParamValue() end");
+        HBDefine.HBLog("galaxyinvader::umengGetParamValue() end");
 
         return ret;
     }
@@ -131,28 +132,27 @@ public class galaxyinvader extends Application {
      * @param[in] value 自定义事件数值。
      */
     public static void umengCustomEvent(String name, String value) {
-        //Log.d(TAG, "umengCustomEvent() start");
+        HBDefine.HBLog("galaxyinvader::umengCustomEvent() start");
 
         if (mContext != null) {
             UmengSDK.customEvent(mContext, name, value);
         }
 
-        //Log.d(TAG, "umengCustomEvent() end");
+        HBDefine.HBLog("galaxyinvader::umengCustomEvent() end");
     }
     
     /**
      * @brief  设定语言代码
      */
     private void _initLanguage() {
-		 String language1 = "";
-		 String language2 = "";
+    	String language1 = "";
+		String language2 = "";
 		 
-		 language1 = Locale.getDefault().getLanguage();
-		 Log.i("jnitest", "------language1:-----"+language1);
-		 language2 = Locale.getDefault().toString();
-		 Log.i("jnitest", "------language2:-----"+language2);
+		language1 = Locale.getDefault().getLanguage();
+		language2 = Locale.getDefault().toString();
 		
-		
+		Log.i(galaxyinvader.TAG, "_initLanguage() Locale.Language=" + language1 + ", Locale=" + language2);
+
 		 if(language1.compareTo("zh") == 0)
 			 nativeSetLang(language2);
 		 else

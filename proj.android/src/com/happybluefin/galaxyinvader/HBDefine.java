@@ -7,11 +7,13 @@
 
 package com.happybluefin.galaxyinvader;
 
+import android.util.Log;
+
 /**
  * @brief  共通定义类。
  * @author 赵一
  */
-public class Define {
+public class HBDefine {
     /**
      * @brief  动作定义类。
      * @author 赵一
@@ -68,4 +70,14 @@ public class Define {
          */
         public static final int EXIT_APPLICATION = 0xff;
     }
+    
+    public static final String HBTag = "HBJava";
+    public static final Boolean HBDebug = false;
+    public static final String TAG = "HBPay";
+    
+    public static void HBLog(String msg) {
+    	if(HBDefine.HBDebug)
+    		Log.d(HBDefine.HBTag, msg);
+    }
+    
 }

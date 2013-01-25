@@ -13,6 +13,8 @@ LayerPause::LayerPause()
 , mBtnExit(NULL)
 , mBtnContinue(NULL)
 {
+    setKeypadEnabled(true);
+    
     for (int i = 0; i < 5; i++)
         mLabelCount[i] = NULL;
 }
@@ -117,6 +119,23 @@ void LayerPause::onBtnContinue(CCObject* pSender, CCControlEvent pCCControlEvent
 {
 	Audio->playEffect(EF_CLICK);
 
+    CCScene* scene = CCDirector::sharedDirector()->getRunningScene();
+    CCArray* layers = scene->getChildren();
+    CCObject* child = NULL;
+    CCARRAY_FOREACH(layers, child)
+    {
+        CC_BREAK_IF(!child);
+        CCLayer* layer =(CCLayer*)child;
+        if(!layer->isRunning())
+            layer->onEnter();
+    }
+    scene->removeChild(this, true);
+}
+
+void LayerPause::keyBackClicked()
+{
+	Audio->playEffect(EF_CLICK);
+    
     CCScene* scene = CCDirector::sharedDirector()->getRunningScene();
     CCArray* layers = scene->getChildren();
     CCObject* child = NULL;

@@ -24,6 +24,7 @@ public:
     void onBtnReivew(CCObject* pSender, CCControlEvent pCCControlEvent);
     
     virtual void update(float dt);
+    void keyBackClicked();
     
 private:
 	bool mMissionClear;		// 当前任务是否达成

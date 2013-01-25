@@ -12,7 +12,10 @@ LayerResult::LayerResult()
 , mBtnContinue(NULL)
 , mLabelRewardGold(NULL)
 , mIconReward(NULL)
+, mMissionClear(false)
 {
+    setKeypadEnabled(true);
+
     for (int i = 0; i < 4; i++)
         mLabelCount[i] = NULL;
 }
@@ -59,6 +62,7 @@ bool LayerResult::onAssignCCBMemberVariable(CCObject* pTarget, const char* pMemb
 
 void LayerResult::onNodeLoaded(CCNode* pNode, CCNodeLoader* pNodeLoader)
 {
+    mMissionClear = false;
 	_checkMission();
     
 	// Invaders
@@ -218,3 +222,8 @@ void LayerResult::_showMissionClear()
 	scene->addChild(HBLayerLoader("LayerMissionClear", LayerMissionClearLoader::loader()), 50000);
 }
 
+void LayerResult::keyBackClicked()
+{
+	Audio->playEffect(EF_CLICK);
+    CCDirector::sharedDirector()->replaceScene(CCTransitionFade::create(0.5, HBSceneLoader("LayerStore", LayerStoreLoader::loader())));
+}

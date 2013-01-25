@@ -13,7 +13,6 @@ package com.happybluefin.android.framework.utility.thirdpart.advertisement.Banne
 
 import android.app.Activity;
 import android.util.Log;
-import android.view.Gravity;
 import android.widget.FrameLayout;
 
 import com.google.ads.AdRequest;
@@ -45,9 +44,11 @@ public class GoogleAdmobSDK {
                 mBannerAdView = new AdView(parent, AdSize.BANNER, uid);
 
                 FrameLayout framelayout = (FrameLayout)parent.getWindow().getDecorView();
-                FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.FILL_PARENT,
-                                                                               FrameLayout.LayoutParams.WRAP_CONTENT);
+                
+                FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT,
+                                                                               FrameLayout.LayoutParams.WRAP_CONTENT);                
                 params.topMargin = 0;
+                params.leftMargin = 0;
                 params.gravity = pos;
                 framelayout.addView(mBannerAdView, params);
 

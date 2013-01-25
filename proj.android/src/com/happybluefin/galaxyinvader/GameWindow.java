@@ -26,13 +26,25 @@ import com.happybluefin.android.framework.utility.thirdpart.advertisement.Banner
 import com.happybluefin.android.framework.utility.thirdpart.statistics.UmengSDK;
 
 import com.happybluefin.galaxyinvader.R;
-
+import com.happybluefin.pay.PayGoogle;
+import com.happybluefin.pay.PayGoogle.IPayEventListener;
 
 /**
  * @brief  游戏窗口类。
  * @author 赵一
  */
 public class GameWindow extends Cocos2dxActivity {
+	
+	public static native int nativePurchaseSuccess(String name);
+	public static native int nativePurchaseFailed(String reason);
+	
+	private static final String sGooglePublishKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAheI9bXergkxwb1wi0kVQNxfrJTWUbaeJNTo9h8U/r45n6JaiiHZ2guzeuGpuGN4/VgBz52dDUXv1QH31P1iiln6FBMxu5DL68Q+av/zRuTmejx+x+A+VgJXpk9GHDvq78PSMXdF3auAE35tR6wzgodS+VmRULp5cGYRbrSxF08D48NmHLqbM1T4eGo39YzmhqLKdGmrFrr086bRNaG4vsydI3afYEaFPZ+1TDYsyAb1xhi8vtDCdDdShqGOpoMox8M7ESROW/6zkadaDOVEoZ/YyaIay3Aa7wf3xTy07BhHKTaY8eyuYr7DfKoqIkoaDn3zfRFtx6T0ZPZWfGTiBYwIDAQAB";
+
+	private static GameWindow sGameWindowInstance;
+
+	public static GameWindow getInstance() {
+		return sGameWindowInstance;
+	}
 	
     /**
      * @brief     窗口建立函数。
@@ -41,8 +53,9 @@ public class GameWindow extends Cocos2dxActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //Log.d(TAG, "onCreate() start");
+        HBDefine.HBLog("GameWindow::onCreate() start");
 
+        sGameWindowInstance = this;
         //初始化控件
         _initView();
 
@@ -51,9 +64,12 @@ public class GameWindow extends Cocos2dxActivity {
 //      UmengSDK.updateOnlineConfig(this);
 
         //初始化横幅广告
-        GoogleAdmobSDK.createBanner(this, galaxyinvader.getAdmobUnitID(), Gravity.BOTTOM);
+        GoogleAdmobSDK.createBanner(this, galaxyinvader.getAdmobUnitID(), Gravity.BOTTOM | Gravity.LEFT);
+        
+        //初始化支付
+        _initPay();
 
-        //Log.d(TAG, "onCreate() end");
+        HBDefine.HBLog("GameWindow::onCreate() end");
     }
 
     /**
@@ -61,7 +77,7 @@ public class GameWindow extends Cocos2dxActivity {
      */
     @Override
     public void onDestroy() {
-        //Log.d(TAG, "onDestroy() start");
+        HBDefine.HBLog("GameWindow::onDestroy() start");
 
         //销毁横幅广告
         GoogleAdmobSDK.destoryBanner();
@@ -71,7 +87,7 @@ public class GameWindow extends Cocos2dxActivity {
         
         super.onDestroy();
 
-        //Log.d(TAG, "onDestroy() end");
+        HBDefine.HBLog("GameWindow::onDestroy() end");
     }
 
     /**
@@ -79,13 +95,13 @@ public class GameWindow extends Cocos2dxActivity {
      */
     @Override
     protected void onPause() {
-        //Log.d(TAG, "onPause() start");
+        HBDefine.HBLog("GameWindow::onPause() start");
 
         super.onPause();
 
         UmengSDK.onPause(this);
 
-        //Log.d(TAG, "onPause() end");
+        HBDefine.HBLog("GameWindow::onPause() end");
     }
 
     /**
@@ -93,13 +109,13 @@ public class GameWindow extends Cocos2dxActivity {
      */
     @Override
     protected void onResume() {
-        //Log.d(TAG, "onResume() start");
+        HBDefine.HBLog("GameWindow::onResume() start");
 
         super.onResume();
 
         UmengSDK.onResume(this);
 
-        //Log.d(TAG, "onResume() end");
+        HBDefine.HBLog("GameWindow::onResume() end");
     }
         
     /**
@@ -109,7 +125,7 @@ public class GameWindow extends Cocos2dxActivity {
      */
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        //Log.d(TAG, "onKeyDown() start");
+        HBDefine.HBLog("GameWindow::onKeyDown() start");
         boolean result = false;
 
         if(keyCode == KeyEvent.KEYCODE_BACK) {
@@ -121,7 +137,7 @@ public class GameWindow extends Cocos2dxActivity {
             result = super.onKeyDown(keyCode, event);
         }
 
-        //Log.d(TAG, "onKeyDown() end");
+        HBDefine.HBLog("GameWindow::onKeyDown() end");
 
         return result;
     }    
@@ -130,14 +146,14 @@ public class GameWindow extends Cocos2dxActivity {
      * @brief  初始化控件函数。
      */
     private void _initView() {
-        //Log.d(TAG, "_initView() start");
+        HBDefine.HBLog("GameWindow::_initView() start");
 
         //初始化消息接收器
         IntentFilter filter = new IntentFilter();
-        filter.addAction(Define.Action.ACTION);
+        filter.addAction(HBDefine.Action.ACTION);
         registerReceiver(mReceiver, filter);
 
-        //Log.d(TAG, "_initView() end");
+        HBDefine.HBLog("GameWindow::_initView() end");
     }
     
     /**
@@ -146,7 +162,7 @@ public class GameWindow extends Cocos2dxActivity {
     private BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            //Log.d(TAG, "BroadcastReceiver::onReceive() start");
+            HBDefine.HBLog("GameWindow::BroadcastReceiver::onReceive() start");
 
             if (intent != null) {
                 Bundle bundle = intent.getExtras();
@@ -155,7 +171,7 @@ public class GameWindow extends Cocos2dxActivity {
 
                 String url = bundle.getString("URL");
                 switch (type) {
-                case Define.MessageID.WEB_BROWSER: {
+                case HBDefine.MessageID.WEB_BROWSER: {
                     //显示网页
                     if (Network.getConnectivityState(GameWindow.this) == true) {
                         if (Utility.startBrowser(GameWindow.this, url) != true) {
@@ -164,28 +180,24 @@ public class GameWindow extends Cocos2dxActivity {
                     }
                     else {
                         //提示连接网络
-                        Toast.makeText(GameWindow.this,
-                                       R.string.can_not_connect_network,
-                                       Toast.LENGTH_SHORT).show();
+                        Toast.makeText(GameWindow.this, R.string.can_not_connect_network, Toast.LENGTH_SHORT).show();
                     }
                     break;
 				}
-                case Define.MessageID.GOTO_REVIEW: {
+                case HBDefine.MessageID.GOTO_REVIEW: {
                     //提交评价
                     if (Network.getConnectivityState(GameWindow.this) == true) {
-                        if (Comment.startGooglePlayComment(GameWindow.this, "com.happybluefin.balloon") != true) {
+                        if (Comment.startGooglePlayComment(GameWindow.this, "com.happybluefin.happybluefin") != true) {
                             Log.e(TAG, "BroadcastReceiver::onReceive(): review failed!");
                         }
                     }
                     else {
                         //提示连接网络
-                        Toast.makeText(GameWindow.this,
-                                       R.string.can_not_connect_network,
-                                       Toast.LENGTH_SHORT).show();
+                        Toast.makeText(GameWindow.this, R.string.can_not_connect_network, Toast.LENGTH_SHORT).show();
                     }
                     break;
                 }
-                case Define.MessageID.GOTO_MOREGAME: {
+                case HBDefine.MessageID.GOTO_MOREGAME: {
                     //提交评价
                     if (Network.getConnectivityState(GameWindow.this) == true) {
 //                        if (Comment.gotoMoreGame(GameWindow.this) != true) {
@@ -195,21 +207,60 @@ public class GameWindow extends Cocos2dxActivity {
                     }
                     else {
                         //提示连接网络
-                        Toast.makeText(GameWindow.this,
-                                       R.string.can_not_connect_network,
-                                       Toast.LENGTH_SHORT).show();
+                        Toast.makeText(GameWindow.this, R.string.can_not_connect_network, Toast.LENGTH_SHORT).show();
                     }
                     break;
                 }
 				}
             }
 
-            //Log.d(TAG, "BroadcastReceiver::onReceive() end");
+            HBDefine.HBLog("GameWindow::BroadcastReceiver::onReceive() end");
         }
     };
+    
+    /**
+     * @brief	初始化支付
+     */
+    private void _initPay() {        
+    	PayGoogle.getInstance().initPlatformInfo(sGooglePublishKey);
+    	PayGoogle.getInstance().setPayEventListener(new IPayEventListener() {
+			@Override
+			public void onSuccessPay(String productId, String orderId) {
+				_purchaseSuccess(productId);
+			}
+			@Override
+			public void onFailedPay(String productId, String reason) {
+				_purchaseFailed(reason);
+			}
+		});
+    }
+    
+    public static void purchaseItem(String name) {
+        HBDefine.HBLog("GameWindow::purchaseItem() start");
+        HBDefine.HBLog("GameWindow::purchaseItem() name=" + name);
+    	PayGoogle.getInstance().pay(name);
+        HBDefine.HBLog("GameWindow::purchaseItem() end");
+    }
+    
+    private void _purchaseSuccess(String name) {
+        HBDefine.HBLog("GameWindow::_purchaseSuccess() start");
+        HBDefine.HBLog("GameWindow::_purchaseSuccess() name=" + name);
+    	galaxyinvader.umengCustomEvent("Purchase", "Success");
+    	nativePurchaseSuccess(name);
+        HBDefine.HBLog("GameWindow::_purchaseSuccess() end");
+    }
+    
+    private void _purchaseFailed(String reason) {
+        HBDefine.HBLog("GameWindow::_purchaseFailed() start");
+        HBDefine.HBLog("GameWindow::_purchaseFailed() reason=" + reason);
+    	galaxyinvader.umengCustomEvent("Purchase", "Failed");
+    	nativePurchaseFailed(reason);
+        HBDefine.HBLog("GameWindow::_purchaseFailed() end");
+    }
     
     /**
      * @brief 日志标记。
      */
     private static final String TAG = "GameWindow";
+
 }

@@ -58,4 +58,6 @@
 	<obj id="MAX" value="最大" />
 	<obj id="Next" value="下一级" />
 	<obj id="Current Mission" value="当前任务"/>
+	<obj id="QuitMsg" value="确定退出游戏么?" />
+	<obj id="Cancel" value="取消" />
 </strings>

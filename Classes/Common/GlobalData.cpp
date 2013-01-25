@@ -7,12 +7,21 @@
 
 GlobalData::GlobalData()
 {
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    mPurchaseItem.push_back("com.happybluefin.galaxyinvader.coin1");
+    mPurchaseItem.push_back("com.happybluefin.galaxyinvader.coin2");
+    mPurchaseItem.push_back("com.happybluefin.galaxyinvader.coin3");
+    mPurchaseItem.push_back("com.happybluefin.galaxyinvader.coin4");
+    mPurchaseItem.push_back("com.happybluefin.galaxyinvader.coin5");
+    mPurchaseItem.push_back("com.happybluefin.galaxyinvader.coin6");
+#else
     mPurchaseItem.push_back("com.liho.galaxyinvaders.coin1");
     mPurchaseItem.push_back("com.liho.galaxyinvaders.coin2");
     mPurchaseItem.push_back("com.liho.galaxyinvaders.coin3");
     mPurchaseItem.push_back("com.liho.galaxyinvaders.coin4");
     mPurchaseItem.push_back("com.liho.galaxyinvaders.coin5");
     mPurchaseItem.push_back("com.liho.galaxyinvaders.coin6");
+#endif
     
     mPurchaseGold.push_back(2500);
     mPurchaseGold.push_back(12500);

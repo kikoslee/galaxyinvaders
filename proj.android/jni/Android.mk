@@ -31,6 +31,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/Layer/StoreItem.cpp \
                    ../../Classes/Layer/TableViewStore.cpp \
                    ../../Classes/Layer/TotalGold.cpp \
+                   ../../Classes/Layer/DlgQuit.cpp \
                    ../../../../../HBCommon/HBCommon.cpp \
                    ../../../../../HBCommon/android/HBCommon_Android.cpp
                    
@@ -43,6 +44,8 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes \
 				   
 
 LOCAL_WHOLE_STATIC_LIBRARIES := cocos2dx_static cocosdenshion_static cocos_extension_static
+LOCAL_CFLAGS := -DCOCOS2D_DEBUG=0 -DNDEBUG
+LOCAL_EXPORT_CFLAGS := -DCOCOS2D_DEBUG=0 -DNDEBUG
             
 include $(BUILD_SHARED_LIBRARY)
 

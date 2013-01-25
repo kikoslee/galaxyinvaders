@@ -44,6 +44,7 @@ void StoreItem::onNodeLoaded(CCNode* pNode, CCNodeLoader* pNodeLoader)
 {    
     mCount = HBcreateLabelAtlas("88", "fnt-number.png", 20, 26, '0', 10, 2, gAnchorRight, mIcon);
     mCount->setColor(gColorBtn);
+    mBtn->setTitleForState(ccs(gls("Equip")), CCControlStateNormal);
 }
 
 SEL_MenuHandler StoreItem::onResolveCCBCCMenuItemSelector(CCObject* pTarget, const char* pSelectorName)

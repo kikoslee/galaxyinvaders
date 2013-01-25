@@ -3,12 +3,10 @@
 
 #include "HBCommon.h"
 
-#define IAP_COUNT   6
-extern int gIapGold[IAP_COUNT];
-
 extern const char* gFontHelvetica;
 extern const char* gFontName;               // 普通字体名称
 extern const char* gFontNumber;             // 数字字体名称
+extern bool gIsDlgQuitShow;
 
 typedef enum
 {

@@ -12,6 +12,7 @@
 	<obj id="Objective_Desc_Total" value="Destroy %d all invaders" />
 	<obj id="PurchaseClosedMsg" value="You are not authorized to purchase, please enable it." />
 	<obj id="PurchaseFailedMsg" value="Unable to complete your purchase, please try again." />
+	<obj id="QuitMsg" value="Are you sure you want to quit?" />
 	<obj id="ReviewMsg" value="If you like Galaxy Invader, please give us a review. We are appreciate your rating our game. Thank you!" />
 	<obj id="EmailMsg" value="Please feedback an email to us if you have any suggestion." />
 	<obj id="Help1" value="1.Drag the hole to destroy invaders." />

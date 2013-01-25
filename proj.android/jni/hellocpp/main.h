@@ -22,6 +22,8 @@ void gotoReview();
 
 int umengGetParamValue(const char* name);
 void umengCustomEvent(const char* name, const char* value);
+    
+void purchaseItem(const char* itemName);
 
 }
 #endif // _Main_H_

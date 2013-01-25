@@ -14,9 +14,15 @@ const char* projName = "galaxyinvader";
 #define NAME2(PACKAGE2, CLASS2, FUNC2) NAME3(PACKAGE2, CLASS2, FUNC2)
 #define NAME(CLASS, FUNC) NAME2(PACKAGE, CLASS, FUNC)
 
-#define  LOG_TAG    "main"
-#define  LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, __VA_ARGS__)
-#define  LOGE(...)  __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, __VA_ARGS__)
+#define  LOG_TAG    "jniMain"
+
+#ifdef NDEBUG
+#   define  LOGD(...)
+#   define  LOGE(...)
+#else
+#   define  LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, __VA_ARGS__)
+#   define  LOGE(...)  __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, __VA_ARGS__)
+#endif
 
 using namespace cocos2d;
 
@@ -51,17 +57,25 @@ void Java_org_cocos2dx_lib_Cocos2dxRenderer_nativeInit(JNIEnv*  env, jobject thi
 
 }
 
-static char* jstringTostring(JNIEnv* env, jstring jstr) {
+char* jstringTostring(JNIEnv* env, jstring jstr) {
+    LOGD("jstringTostring() start");
+
+    if (jstr == NULL)
+    {
+        LOGD("jstringTostring() jstr is NULL");
+        LOGD("jstringTostring() end");
+        return (char*)"";
+    }
+
     char* rtn = NULL;
+
     jclass clsstring = env->FindClass("java/lang/String");
-
     jstring strencode = env->NewStringUTF("utf-8");
-
     jmethodID mid = env->GetMethodID(clsstring, "getBytes", "(Ljava/lang/String;)[B");
-
-    jbyteArray barr= (jbyteArray)env->CallObjectMethod(jstr, mid, strencode);
+    jbyteArray barr = (jbyteArray)env->CallObjectMethod(jstr, mid, strencode);
     jsize alen = env->GetArrayLength(barr);
     jbyte* ba = env->GetByteArrayElements(barr, JNI_FALSE);
+
     if (alen > 0) {
         rtn = (char*)malloc(alen + 1);
         memcpy(rtn, ba, alen);
@@ -69,6 +83,8 @@ static char* jstringTostring(JNIEnv* env, jstring jstr) {
     }
 
     env->ReleaseByteArrayElements(barr, ba, 0);
+
+    LOGD("jstringTostring() end");
 
     return rtn;
 }
@@ -216,8 +232,6 @@ void gotoUrl(const char* url) {
 void gotoReview() {
     LOGD("gotoReview() start");
 
-    char* ret = NULL;
-
     JNIEnv* env = NULL;
     JavaVM *vm = NULL;
     int state;
@@ -232,6 +246,7 @@ void gotoReview() {
 
         char clsName[512];
         sprintf(clsName, "com/happybluefin/%s/%s", projName, projName);
+        LOGD("gotoReview() clsName:%s", clsName);
         jclass cls = env->FindClass(clsName);
         if (!cls) {
             LOGE("gotoReview(): FindClass() failed");
@@ -244,9 +259,7 @@ void gotoReview() {
             LOGD("gotoReview() end");
         }
 
-        jstring str = (jstring)env->CallStaticObjectMethod(cls, gotoReview);
-
-        ret = jstringTostring(env, str);
+        env->CallStaticObjectMethod(cls, gotoReview);
     }
 
     LOGD("gotoReview() end");
@@ -256,13 +269,12 @@ void gotoMoreGame()
 {	
     LOGD("gotoMoreGame() start");
 
-    char* ret = NULL;
-
     JNIEnv* env = NULL;
     JavaVM *vm = NULL;
     int state;
 
     vm = JniHelper::getJavaVM();
+    LOGD("gotoMoreGame() 1");
     if (vm != NULL) {
         state = vm->GetEnv((void**)&env, JNI_VERSION_1_4);
         if (state < 0) {
@@ -272,6 +284,7 @@ void gotoMoreGame()
 
         char clsName[512];
         sprintf(clsName, "com/happybluefin/%s/%s", projName, projName);
+        LOGD("gotoReview() clsName:%s", clsName);
         jclass cls = env->FindClass(clsName);
         if (!cls) {
             LOGE("gotoMoreGame(): FindClass() failed");
@@ -283,10 +296,7 @@ void gotoMoreGame()
             LOGE("gotoMoreGame(): GetStaticMethodID() failed");
             LOGD("gotoMoreGame() end");
         }
-
-        jstring str = (jstring)env->CallStaticObjectMethod(cls, gotoMoreGame);
-
-        ret = jstringTostring(env, str);
+        env->CallStaticObjectMethod(cls, gotoMoreGame);
     }
 
     LOGD("gotoMoreGame() end");
@@ -390,6 +400,68 @@ void umengCustomEvent(const char* name, const char* value) {
     }
 
     LOGD("umengCustomEvent() end");
+}
+
+// 购买项目
+void purchaseItem(const char* itemName) {
+    LOGD("purchaseItem() start");
+    LOGD("purchaseItem(): itemName: %s", itemName);
+
+    JNIEnv* env = NULL;
+    JavaVM *vm = JniHelper::getJavaVM();
+    int state = vm->GetEnv((void**)&env, JNI_VERSION_1_4);
+
+    char clsName[512];
+    sprintf(clsName, "com/happybluefin/%s/%s", projName, "GameWindow");
+    jclass cls = env->FindClass(clsName);
+    if (!cls) {
+        LOGE("purchaseItem(): FindClass() failed");
+        LOGD("purchaseItem() end");
+        return;
+    }
+
+    jmethodID mtd = env->GetStaticMethodID(cls, "purchaseItem", "(Ljava/lang/String;)V");
+    if (!mtd) {
+        LOGE("purchaseItem(): GetStaticMethodID() failed");
+        LOGD("purchaseItem() end");
+        return;
+    }
+
+    jstring param1 = env->NewStringUTF(itemName);
+    env->CallStaticObjectMethod(cls, mtd, param1);
+
+    LOGD("purchaseItem() end");
+}
+
+// 支付成功
+jint NAME(GameWindow, nativePurchaseSuccess)(JNIEnv *env, jobject thiz, jstring name)
+{
+    CCLOG("**********nativePurchaseSuccess*******");
+    
+    char * re ;
+    re = jstringTostring(env , name);
+
+    CCLOG("*****Pay_id****%s", re);
+
+    HBPurchase::shared()->purchaseSuccess(re);
+    
+    return 1;
+}
+
+
+// 支付失败
+jint NAME(GameWindow, nativePurchaseFailed)(JNIEnv *env, jobject thiz, jstring reason)
+{
+    CCLOG("**********nativePurchaseFailed*******");
+    
+    char * re ;
+    re = jstringTostring(env , reason);
+
+    CCLOG("*****Reason****%s", re);
+
+    HBPurchase::shared()->purchaseFailed(0, re);
+    
+    return 1;
 }
 
 //获取语言

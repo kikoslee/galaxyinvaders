@@ -20,6 +20,8 @@ public:
     virtual bool onAssignCCBMemberVariable(CCObject* pTarget, const char* pMemberVariableName, CCNode* pNode);
     virtual void onNodeLoaded(CCNode* pNode, CCNodeLoader* pNodeLoader);
 
+    void keyBackClicked();
+
 private:
     CCLabelTTF* mLabelCurrentMission;
     CCLabelTTF* mLabelMissionName;

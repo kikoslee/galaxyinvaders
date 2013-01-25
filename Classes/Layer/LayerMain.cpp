@@ -3,12 +3,14 @@
 #include "LayerStoreLoader.h"
 #include "TotalGoldLoader.h"
 #include "NextMissionLoader.h"
+#include "DlgQuitLoader.h"
 
 LayerMain::LayerMain()
 : mLabelTitle(NULL)
 , mLabelCurObjName(NULL)
 , mLabelCurObjDesc(NULL)
 , mBtnSound(NULL)
+, mBtnRank(NULL)
 {
     setKeypadEnabled(true);
 }
@@ -19,6 +21,7 @@ LayerMain::~LayerMain()
     CC_SAFE_RELEASE(mLabelCurObjName);
     CC_SAFE_RELEASE(mLabelCurObjDesc);
     CC_SAFE_RELEASE(mBtnSound);
+    CC_SAFE_RELEASE(mBtnRank);
 }
 
 SEL_MenuHandler LayerMain::onResolveCCBCCMenuItemSelector(CCObject* pTarget, const char* pSelectorName)
@@ -40,6 +43,7 @@ bool LayerMain::onAssignCCBMemberVariable(CCObject* pTarget, const char* pMember
     CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mLabelCurObjName", CCLabelTTF*, mLabelCurObjName);
     CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mLabelCurObjDesc", CCLabelTTF*, mLabelCurObjDesc);
     CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mBtnSound", CCControlButton*, mBtnSound);
+    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mBtnRank", CCControlButton*, mBtnRank);
     CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mLabelTitle", CCLabelTTF*, mLabelTitle);
     return false;
 }
@@ -50,6 +54,10 @@ void LayerMain::onNodeLoaded(CCNode* pNode, CCNodeLoader* pNodeLoader)
     mLabelCurObjName->setString(GDShared->getCurObjName());
     mLabelCurObjDesc->setString(GDShared->getCurObjDesc());
     
+#if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
+    mBtnRank->setVisible(false);
+#else
+#endif
 	_refreshSoundBtn();
 }
 
@@ -102,7 +110,10 @@ void LayerMain::onBtnMore(CCObject* pSender, CCControlEvent pCCControlEvent)
 void LayerMain::keyBackClicked()
 {
 #if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
-    HBExitApplication();
-    
+    if (!gIsDlgQuitShow)
+    {
+        gIsDlgQuitShow = true;
+        CCDirector::sharedDirector()->getRunningScene()->addChild(HBLayerLoader("DlgQuit", DlgQuitLoader::loader()));
+    }
 #endif // CC_PLATFORM_ANDROID
 }

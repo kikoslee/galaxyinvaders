@@ -45,6 +45,8 @@ LayerGame::LayerGame()
 , mActionSpeed(NULL)
 , mActionShield(NULL)
 {
+    setKeypadEnabled(true);
+    
 	mActionMiss = CCSequence::create(CCScaleTo::create(0.3, 1), CCRotateTo::create(0.05, -15), CCRotateTo::create(0.05, 15), CCRotateTo::create(0.05, -15), CCRotateTo::create(0.05, 15), CCRotateTo::create(0.05, -15), CCRotateTo::create(0.05, 15), CCScaleTo::create(0.3, 0), CCHide::create(), NULL);
 	mActionMiss->retain();
     
@@ -540,4 +542,14 @@ void LayerGame::_finishMiss(CCObject* obj)
 {
 	CCSprite* sprite = (CCSprite*)obj;
 	sprite->removeFromParentAndCleanup(true);
+}
+
+void LayerGame::keyBackClicked()
+{
+    if(!mStarted)
+		return;
+	
+	Audio->playEffect(EF_CLICK);
+    onExit();
+	getParent()->addChild(HBLayerLoader("LayerPause", LayerPauseLoader::loader()), 10000);
 }

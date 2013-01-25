@@ -31,6 +31,7 @@ private:
     CCLabelTTF* mLabelCurObjDesc;
     
     CCControlButton* mBtnSound;
+    CCControlButton* mBtnRank;
     
     void _refreshSoundBtn();
     

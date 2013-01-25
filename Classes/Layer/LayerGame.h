@@ -35,6 +35,7 @@ public:
     virtual void registerWithTouchDispatcher();
 
 	virtual void update(float dt);
+    void keyBackClicked();
     
 private:
 	CCLayer* mLayerExplodeScore;

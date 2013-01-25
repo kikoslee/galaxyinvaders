@@ -217,6 +217,8 @@
 		BFFF808F16731B41009DBDE5 /* LayerMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFFF808C16731B41009DBDE5 /* LayerMain.cpp */; };
 		EE35D3E5168C396A0049FB9B /* sound in Resources */ = {isa = PBXBuildFile; fileRef = EE35D3E4168C396A0049FB9B /* sound */; };
 		EE35D3FA168C500D0049FB9B /* StoreItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE35D3F7168C500D0049FB9B /* StoreItem.cpp */; };
+		EE60DFA516B151A000483ACB /* DlgQuit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE60DFA216B151A000483ACB /* DlgQuit.cpp */; };
+		EE60DFA616B151A000483ACB /* DlgQuit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE60DFA216B151A000483ACB /* DlgQuit.cpp */; };
 		EE75C80216A57B5C00D138DE /* BuyItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE75C7FF16A57B5C00D138DE /* BuyItem.cpp */; };
 		EE77370E16A6A70200C66919 /* IAPHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = EE77370B16A6A70200C66919 /* IAPHelper.mm */; };
 		EE7C876516A2AFD000605D65 /* NextMission.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE7C876216A2AFD000605D65 /* NextMission.cpp */; };
@@ -1151,6 +1153,9 @@
 		EE35D3F7168C500D0049FB9B /* StoreItem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StoreItem.cpp; path = Layer/StoreItem.cpp; sourceTree = "<group>"; };
 		EE35D3F8168C500D0049FB9B /* StoreItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreItem.h; path = Layer/StoreItem.h; sourceTree = "<group>"; };
 		EE35D3F9168C500D0049FB9B /* StoreItemLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreItemLoader.h; path = Layer/StoreItemLoader.h; sourceTree = "<group>"; };
+		EE60DFA216B151A000483ACB /* DlgQuit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DlgQuit.cpp; path = Layer/DlgQuit.cpp; sourceTree = "<group>"; };
+		EE60DFA316B151A000483ACB /* DlgQuit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DlgQuit.h; path = Layer/DlgQuit.h; sourceTree = "<group>"; };
+		EE60DFA416B151A000483ACB /* DlgQuitLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DlgQuitLoader.h; path = Layer/DlgQuitLoader.h; sourceTree = "<group>"; };
 		EE75C7FF16A57B5C00D138DE /* BuyItem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BuyItem.cpp; path = Layer/BuyItem.cpp; sourceTree = "<group>"; };
 		EE75C80016A57B5C00D138DE /* BuyItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuyItem.h; path = Layer/BuyItem.h; sourceTree = "<group>"; };
 		EE75C80116A57B5C00D138DE /* BuyItemLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuyItemLoader.h; path = Layer/BuyItemLoader.h; sourceTree = "<group>"; };
@@ -2359,6 +2364,9 @@
 				EE35D3F7168C500D0049FB9B /* StoreItem.cpp */,
 				EE35D3F8168C500D0049FB9B /* StoreItem.h */,
 				EE35D3F9168C500D0049FB9B /* StoreItemLoader.h */,
+				EE60DFA216B151A000483ACB /* DlgQuit.cpp */,
+				EE60DFA316B151A000483ACB /* DlgQuit.h */,
+				EE60DFA416B151A000483ACB /* DlgQuitLoader.h */,
 				BF09CCEE16861717009C0CE1 /* LayerBuy.cpp */,
 				BF09CCEF16861717009C0CE1 /* LayerBuy.h */,
 				BFC623A016875E9000208948 /* LayerBuyLoader.h */,
@@ -3154,6 +3162,7 @@
 				EE895DF116A7B07D008D0EE7 /* JSONKit.m in Sources */,
 				EE895E5016A7B2C6008D0EE7 /* BannerAdViewController.mm in Sources */,
 				EEE2D42616A7ED63004040FB /* DlgReview.cpp in Sources */,
+				EE60DFA516B151A000483ACB /* DlgQuit.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3374,6 +3383,7 @@
 				EEB9975316AAEB3400292523 /* JSONKit.m in Sources */,
 				EEB9975416AAEB3400292523 /* BannerAdViewController.mm in Sources */,
 				EEB9975516AAEB3400292523 /* DlgReview.cpp in Sources */,
+				EE60DFA616B151A000483ACB /* DlgQuit.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

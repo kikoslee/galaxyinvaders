@@ -65,7 +65,7 @@ void BuyItem::setIndex(LayerBuy* parent, int index)
     mIndex = index;
     assert(mIndex >= 0);
 
-    mLabelGold->setString(fcs("%d", gIapGold[mIndex]));
+    mLabelGold->setString(fcs("%d", GDShared->mPurchaseGold[mIndex]));
     string fee = HBPurchase::shared()->getItemCost(mIndex);
     if (fee.length() > 0)
         mLabelMoney->setString(fcs(" = %s", fee.c_str()));

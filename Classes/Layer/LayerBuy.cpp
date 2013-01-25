@@ -62,7 +62,9 @@ void LayerBuy::onNodeLoaded(CCNode* pNode, CCNodeLoader* pNodeLoader)
     mBtnClose->setDefaultTouchPriority(tp_dialogBtn);
     
     mLabelPurchase->setString(gls("Purchasing..."));
-    mLayerMask->setTouchPriority(tp_dialogBtn - 1);
+//    mLayerMask->setTouchEnabled(true);
+//    mLayerMask->setTouchMode(kCCTouchesOneByOne);
+//    mLayerMask->setTouchPriority(tp_dialogBtn - 1);
     mLayerMask->setVisible(false);
     
     for (int i = 0; i < 6; i++)
@@ -104,20 +106,29 @@ bool LayerBuy::ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent)
 
 void LayerBuy::purchaseStart(int index)
 {
-    HBUmeng::event("Purchase", fcs("Start: %d", GDShared->mPurchaseItem[index].c_str()));
+    HBUmeng::event("Purchase", fcs("Start: %s", GDShared->mPurchaseItem[index].c_str()));
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#else
     mLayerMask->setVisible(true);
+#endif
     HBPurchase::shared()->purchaseItem(index, this, callfuncO_selector(LayerBuy::purchaseSuccess), callfuncO_selector(LayerBuy::purchaseFailed));
 }
 
 void LayerBuy::purchaseSuccess(CCString* itemName)
 {
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#else
     HBUmeng::event("Purchase", fcs("Success: %s", itemName->getCString()));
+#endif
     mLayerMask->setVisible(false);
     GDShared->addPurchaseGold(itemName->getCString());
 }
 
 void LayerBuy::purchaseFailed(CCString* itemName)
 {
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#else
     HBUmeng::event("Purchase", fcs("Failed: %s", itemName->getCString()));
+#endif
     mLayerMask->setVisible(false);
 }

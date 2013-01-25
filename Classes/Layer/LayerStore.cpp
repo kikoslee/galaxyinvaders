@@ -11,6 +11,7 @@ LayerStore::LayerStore()
 , mLayerTable(NULL)
 , mBtnGo(NULL)
 {
+    setKeypadEnabled(true);
 }
 
 LayerStore::~LayerStore()
@@ -69,6 +70,12 @@ void LayerStore::onBtnGo(CCObject* pSender, CCControlEvent pCCControlEvent)
 }
 
 void LayerStore::onBtnBack(CCObject* pSender, CCControlEvent pCCControlEvent)
+{
+	Audio->playEffect(EF_CLICK);
+    CCDirector::sharedDirector()->replaceScene(CCTransitionFade::create(0.5, HBSceneLoader("LayerMain", LayerMainLoader::loader())));
+}
+
+void LayerStore::keyBackClicked()
 {
 	Audio->playEffect(EF_CLICK);
     CCDirector::sharedDirector()->replaceScene(CCTransitionFade::create(0.5, HBSceneLoader("LayerMain", LayerMainLoader::loader())));
