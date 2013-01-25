@@ -12,5 +12,5 @@ proj.android/dependence/framework/.settings
 proj.android/dependence/framework/bin/*
 proj.android/dependence/framework/obj/*
 proj.android/dependence/framework/gen/*
-
+proj.android/package/*
 workspace.android/*
