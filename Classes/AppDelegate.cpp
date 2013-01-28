@@ -20,7 +20,6 @@ AppDelegate::~AppDelegate()
 
 bool AppDelegate::applicationDidFinishLaunching()
 {
-    CCLog("AppDelegate::applicationDidFinishLaunching() start");
     CCDirector *pDirector = CCDirector::sharedDirector();
     pDirector->setOpenGLView(CCEGLView::sharedOpenGLView());
     pDirector->setProjection(kCCDirectorProjection2D);
@@ -78,7 +77,6 @@ bool AppDelegate::applicationDidFinishLaunching()
     
 	pDirector->runWithScene(HBSceneLoader("LayerMain", LayerMainLoader::loader()));
     
-    CCLog("AppDelegate::applicationDidFinishLaunching() end");
     return true;
 }
 
