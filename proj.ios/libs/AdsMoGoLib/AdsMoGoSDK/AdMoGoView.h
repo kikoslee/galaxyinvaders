@@ -9,6 +9,7 @@
 #import "AdMoGoDelegateProtocol.h"
 #import "AdMoGoWebBrowserControllerUserDelegate.h"
 #import "AdViewType.h"
+#import "AdMoGoViewAnimationDelegate.h"
 /*
   AdViewType 广告视图类型 不是配置信息请求type
  */
@@ -23,6 +24,8 @@
 
 
 @property(nonatomic,assign) id<AdMoGoWebBrowserControllerUserDelegate> adWebBrowswerDelegate;
+
+@property(nonatomic,assign) id<AdMoGoViewAnimationDelegate> adAnimationDelegate;
 
 /*
     ak:开发appkey

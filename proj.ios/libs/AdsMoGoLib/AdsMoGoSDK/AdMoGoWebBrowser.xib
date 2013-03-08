@@ -190,7 +190,7 @@
 						<reference key="IBUINormalTitleShadowColor" ref="162617388"/>
 						<object class="NSCustomResource" key="IBUINormalImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">分享.png</string>
+							<string key="NSResourceName">webview_bar_share.png</string>
 						</object>
 						<reference key="IBUIFontDescription" ref="880597501"/>
 						<reference key="IBUIFont" ref="789275124"/>
@@ -201,7 +201,6 @@
 						<string key="NSFrame">{{256, 445}, {64, 35}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -645,7 +644,7 @@
 				<string>webview_bar_close_hover.png</string>
 				<string>webview_bar_next_grey.png</string>
 				<string>webview_bar_pause.png</string>
-				<string>分享.png</string>
+				<string>webview_bar_share.png</string>
 			</object>
 			<object class="NSArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>

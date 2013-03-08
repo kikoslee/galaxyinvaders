@@ -35,8 +35,8 @@
             android:configChanges="orientation" >
         </activity>
         
+        <!-- Used for iap -->
         <service android:name="com.happybluefin.pay.google.BillingService" />
-
         <receiver android:name="com.happybluefin.pay.google.BillingReceiver">
             <intent-filter>
                 <action android:name="com.android.vending.billing.IN_APP_NOTIFY" />
@@ -44,6 +44,14 @@
                 <action android:name="com.android.vending.billing.PURCHASE_STATE_CHANGED" />
             </intent-filter>
         </receiver>
+
+        <!-- Used for install referral measurement-->
+        <service android:name="com.google.analytics.tracking.android.CampaignTrackingService"/>
+        <receiver android:name="com.google.analytics.tracking.android.CampaignTrackingReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>        
         
         <!-- AdMob -->
         <activity android:name="com.google.ads.AdActivity"

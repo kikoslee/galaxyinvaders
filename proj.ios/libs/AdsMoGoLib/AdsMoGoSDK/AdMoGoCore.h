@@ -13,7 +13,7 @@
 #import "AdMoGoView.h"
 
 #import "AdMoGoCoreTimerFireDelegate.h"
-
+#import "AdMoGoViewAnimationDelegate.h"
 
 
 typedef  enum{
@@ -24,7 +24,7 @@ typedef  enum{
 
 @class AdMoGoAdNetworkAdapter;
 
-@interface AdMoGoCore : NSObject
+@interface AdMoGoCore : NSObject<AdMoGoViewAnimationDelegate>
 {
     /*
      用户配置信息key
@@ -41,6 +41,8 @@ typedef  enum{
 @property(nonatomic,assign) BOOL isStop;
 
 @property(nonatomic,assign) id<AdMoGoWebBrowserControllerUserDelegate> adWebBrowswerDelegate;
+
+
 
 /*
  轮换广告启动
@@ -93,6 +95,9 @@ typedef  enum{
 
 - (void)adapter:(AdMoGoAdNetworkAdapter *)adapter didGetAd:(NSString *)adType;
 
+/*随宗SDK单独使用*/
+- (void)adapter:(AdMoGoAdNetworkAdapter *)_adapter didReceiveAdView:(UIView *)view withTime:(NSInteger)refreshTime;
+
 - (void)adapter:(AdMoGoAdNetworkAdapter *)adapter didReceiveAdView:(UIView *)view;
 
 - (void)adapter:(AdMoGoAdNetworkAdapter *)_adapter didReceiveAdView:(UIView *)view waitUntilDone:(BOOL)isWait;
@@ -110,7 +115,7 @@ typedef  enum{
     发送点击计数
  */
 - (void)sendRecordNum;
-
+- (void)premiumADClickDict:(NSMutableDictionary *)receiveValue;
 /*
     特殊发送
  */

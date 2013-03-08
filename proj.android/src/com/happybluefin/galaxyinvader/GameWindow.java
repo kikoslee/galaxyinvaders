@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import org.cocos2dx.lib.Cocos2dxActivity;
 
+import com.google.analytics.tracking.android.EasyTracker;
 import com.happybluefin.android.framework.utility.system.Comment;
 import com.happybluefin.android.framework.utility.system.Network;
 import com.happybluefin.android.framework.utility.system.Utility;
@@ -46,10 +47,6 @@ public class GameWindow extends Cocos2dxActivity {
 		return sGameWindowInstance;
 	}
 	
-    /**
-     * @brief     窗口建立函数。
-     * @param[in] savedInstanceState 保存状态。
-     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,13 +65,9 @@ public class GameWindow extends Cocos2dxActivity {
         
         //初始化支付
         _initPay();
-
         HBDefine.HBLog("GameWindow::onCreate() end");
     }
 
-    /**
-     * @brief  窗口释放函数。
-     */
     @Override
     public void onDestroy() {
         HBDefine.HBLog("GameWindow::onDestroy() start");
@@ -86,35 +79,34 @@ public class GameWindow extends Cocos2dxActivity {
         unregisterReceiver(mReceiver);
         
         super.onDestroy();
-
         HBDefine.HBLog("GameWindow::onDestroy() end");
     }
 
-    /**
-     * @brief  窗口暂停函数。
-     */
-    @Override
+	@Override
+	public void onStart() {
+	    super.onStart();
+	    EasyTracker.getInstance().activityStart(this);
+	}
+
+	@Override
+	public void onStop() {
+	    super.onStop();
+	    EasyTracker.getInstance().activityStop(this);
+	}	
+
+	@Override
     protected void onPause() {
         HBDefine.HBLog("GameWindow::onPause() start");
-
         super.onPause();
-
         UmengSDK.onPause(this);
-
         HBDefine.HBLog("GameWindow::onPause() end");
     }
 
-    /**
-     * @brief  窗口再开始函数。
-     */
     @Override
     protected void onResume() {
         HBDefine.HBLog("GameWindow::onResume() start");
-
         super.onResume();
-
         UmengSDK.onResume(this);
-
         HBDefine.HBLog("GameWindow::onResume() end");
     }
         

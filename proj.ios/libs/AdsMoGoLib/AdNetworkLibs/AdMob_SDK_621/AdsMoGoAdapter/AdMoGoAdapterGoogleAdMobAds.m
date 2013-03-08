@@ -15,6 +15,8 @@
 #import "AdMoGoConfigDataCenter.h"
 #import "AdMoGoConfigData.h"
 #import "AdMoGoDeviceInfoHelper.h"
+#import "MobClick.h"
+#import "HBKeys.h"
 
 @implementation AdMoGoAdapterGoogleAdMobAds
 
@@ -251,6 +253,8 @@ didFailToReceiveAdWithError:(GADRequestError *)error {
 		([adMoGoDelegate respondsToSelector:delegateSelector])) {
 		return [adMoGoDelegate performSelector:delegateSelector];
 	}
-	return [self.ration objectForKey:@"key"];
+
+    return [self.ration objectForKey:@"key"];
+
 }
 @end

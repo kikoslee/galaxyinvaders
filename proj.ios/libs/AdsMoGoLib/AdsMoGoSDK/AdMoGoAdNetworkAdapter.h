@@ -13,6 +13,16 @@
 #import "AdMoGoCore.h"
 #import "AdMoGoWebBrowserControllerUserDelegate.h"
 
+#ifndef AdapterTimeOut15
+#define AdapterTimeOut15 15
+#endif
+#ifndef AdapterTimeOut30
+#define AdapterTimeOut30 30
+#endif
+#ifndef AdapterTimeOut60
+#define AdapterTimeOut60 60
+#endif
+
 typedef enum {
 	AdMoGoAdNetworkTypeAdMob             = 1,
 	AdMoGoAdNetworkTypeJumpTap           = 2,
@@ -69,13 +79,25 @@ typedef enum {
     AdMoGoAdNetworkTypeMogoSTS      = 66,
     AdMoGoAdNetworkTypeAdfonic      = 70,
     AdMoGoAdNetworkTypePunchBox     = 71,
-    AdMoGoAdNetworkTypeNokia     = 73,
-    AdMoGoAdNetworkTypeChartboost     = 74,
+    AdMoGoAdNetworkTypeNokia        = 73,
+    AdMoGoAdNetworkTypeChartboost   = 74,
+    AdMOGoAdNetworkTypeRLP          = 75,
+    
     
     AdMoGoAdNetworkTypeAdMobFullAd = 100,
+    AdMoGoAdNetworkTypeMillennialFullAd = 600,
+    AdMoGoAdNetworkTypeGreyStripeFullAd = 700,
+    
+    AdMoGoAdNetworkTypeCustomFullAd     = 900,
+    AdMoGoAdNetworkTypeExchangeFullAd   = 4500,
+    AdMoGoAdNetworkTypePremiumADFullAd  = 4800,
+    AdMoGoAdNetworkTypeRecommendADFullAd = 5400,
+    
+    AdMoGoAdNetworkTypeMoGoFullAd      = 2700,
     AdMoGoAdNetworkTypeAdInmobiFullAd  = 1800,
     AdMoGoAdNetworkTypeAdChinaFullAd   = 2100,
     AdMoGoAdNetworkTypeYouMiFullAd     = 2400,
+    AdMoGoAdNetworkTypeSmartMADFullAd  = 2600,
     AdMoGoAdNetworkTypeAdFractalFullAd = 5000,
     AdMoGoAdNetworkTypeAdwoFullAd      = 3300,
     AdMoGoAdNetworkTypeWiAdFullAd      = 2200,
@@ -93,7 +115,8 @@ typedef enum {
     AdMoGoAdNetworkTypeAdwoSDK         = 330,
     AdMoGoAdNetworkTypeAdFractalSDK    = 500,
     AdMoGoAdNetworkTypeWQSDK           = 560,
-    
+    AdMoGoAdNetworkTypeSmartMADASDK    = 260,
+    AdMoGoAdNetworkTypeSuiZongSDK      = 510,
     
     AdMoGoAdNetworkTypeAdFractalFullScreenSDK = 50000,
     AdMoGoAdNetworkTypeAdInmobiFullScreenSDK  = 18000,
@@ -123,6 +146,7 @@ typedef enum {
         2012-9-11 特殊id
      */
     NSString *specialID;
+    
 }
 
 /*

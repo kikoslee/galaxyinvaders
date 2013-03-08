@@ -69,6 +69,8 @@
 //Whether popup alertView
 -(BOOL)shouldAlertQAView:(UIAlertView *)alertView;
 
+
+
 #pragma mark MoGoWebBrowser Delegate
 
 

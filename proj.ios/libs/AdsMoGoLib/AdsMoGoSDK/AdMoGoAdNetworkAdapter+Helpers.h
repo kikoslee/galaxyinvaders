@@ -24,4 +24,6 @@
 - (UIColor *)helperTextColorToUse;
 - (UIColor *)helperSecondaryTextColorToUse;
 - (NSInteger)helperCalculateAge;
+
+- (BOOL)helperNotifyDelegateOfFullScreenAutorotate; 
 @end

@@ -8,69 +8,69 @@ LayerBuy::LayerBuy()
 , mLayerMask(NULL)
 , mLabelPurchase(NULL)
 {
-    for (int i = 0; i < 6; i++)
-        mBuyItem[i] = NULL;
+	for (int i = 0; i < 6; i++)
+		mBuyItem[i] = NULL;
 
-    setTouchEnabled(true);
-    setTouchMode(kCCTouchesOneByOne);
-    setTouchPriority(tp_dialog);
+	setTouchEnabled(true);
+	setTouchMode(kCCTouchesOneByOne);
+	setTouchPriority(tp_dialog);
 }
 
 LayerBuy::~LayerBuy()
 {
-    CC_SAFE_RELEASE(mLabelTitle);
-    CC_SAFE_RELEASE(mBtnClose);
-    for (int i = 0; i < 6; i++)
-        CC_SAFE_RELEASE(mBuyItem[i]);
-    CC_SAFE_RELEASE(mLayerMask);
-    CC_SAFE_RELEASE(mLabelPurchase);
-    CC_SAFE_RELEASE(mLayerBase);
+	CC_SAFE_RELEASE(mLabelTitle);
+	CC_SAFE_RELEASE(mBtnClose);
+	for (int i = 0; i < 6; i++)
+		CC_SAFE_RELEASE(mBuyItem[i]);
+	CC_SAFE_RELEASE(mLayerMask);
+	CC_SAFE_RELEASE(mLabelPurchase);
+	CC_SAFE_RELEASE(mLayerBase);
 }
 
 SEL_MenuHandler LayerBuy::onResolveCCBCCMenuItemSelector(CCObject* pTarget, const char* pSelectorName)
 {
-    return NULL;
+	return NULL;
 }
 
 SEL_CCControlHandler LayerBuy::onResolveCCBCCControlSelector(CCObject* pTarget, const char* pSelectorName)
 {
-    CCB_SELECTORRESOLVER_CCCONTROL_GLUE(this, "onBtnClose", LayerBuy::onBtnClose);
-    return NULL;
+	CCB_SELECTORRESOLVER_CCCONTROL_GLUE(this, "onBtnClose", LayerBuy::onBtnClose);
+	return NULL;
 }
 
 bool LayerBuy::onAssignCCBMemberVariable(CCObject* pTarget, const char* pMemberVariableName, CCNode* pNode)
 {
-    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mLayerBase", CCLayerColor*, mLayerBase);
-    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mLabelTitle", CCLabelTTF*, mLabelTitle);
-    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mBuyItem0", BuyItem*, mBuyItem[0]);
-    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mBuyItem1", BuyItem*, mBuyItem[1]);
-    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mBuyItem2", BuyItem*, mBuyItem[2]);
-    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mBuyItem3", BuyItem*, mBuyItem[3]);
-    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mBuyItem4", BuyItem*, mBuyItem[4]);
-    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mBuyItem5", BuyItem*, mBuyItem[5]);
-    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mBtnClose", CCControlButton*, mBtnClose);
-    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mLayerMask", CCLayerColor*, mLayerMask);
-    CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mLabelPurchase", CCLabelTTF*, mLabelPurchase);
-    
-    return false;
+	CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mLayerBase", CCLayerColor*, mLayerBase);
+	CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mLabelTitle", CCLabelTTF*, mLabelTitle);
+	CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mBuyItem0", BuyItem*, mBuyItem[0]);
+	CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mBuyItem1", BuyItem*, mBuyItem[1]);
+	CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mBuyItem2", BuyItem*, mBuyItem[2]);
+	CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mBuyItem3", BuyItem*, mBuyItem[3]);
+	CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mBuyItem4", BuyItem*, mBuyItem[4]);
+	CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mBuyItem5", BuyItem*, mBuyItem[5]);
+	CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mBtnClose", CCControlButton*, mBtnClose);
+	CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mLayerMask", CCLayerColor*, mLayerMask);
+	CCB_MEMBERVARIABLEASSIGNER_GLUE(this, "mLabelPurchase", CCLabelTTF*, mLabelPurchase);
+	
+	return false;
 }
 
 void LayerBuy::onNodeLoaded(CCNode* pNode, CCNodeLoader* pNodeLoader)
 {
-    mLabelTitle->setString(gls("More Coin"));
-    mBtnClose->setTitleForState(ccs(gls("Close")), CCControlStateNormal);
-    mBtnClose->setDefaultTouchPriority(tp_dialogBtn);
-    
-    mLabelPurchase->setString(gls("Purchasing..."));
+	mLabelTitle->setString(gls("More Coin"));
+	mBtnClose->setTitleForState(ccs(gls("Close")), CCControlStateNormal);
+	mBtnClose->setDefaultTouchPriority(tp_dialogBtn);
+	
+	mLabelPurchase->setString(gls("Purchasing..."));
 //    mLayerMask->setTouchEnabled(true);
 //    mLayerMask->setTouchMode(kCCTouchesOneByOne);
 //    mLayerMask->setTouchPriority(tp_dialogBtn - 1);
-    mLayerMask->setVisible(false);
-    
-    for (int i = 0; i < 6; i++)
-        mBuyItem[i]->setIndex(this, i);
-    
-    // 出现动画
+	mLayerMask->setVisible(false);
+	
+	for (int i = 0; i < 6; i++)
+		mBuyItem[i]->setIndex(this, i);
+	
+	// 出现动画
 	mLayerBase->setPosition(HBgetPositionByPercent(100, 0));
 	mLayerBase->runAction(CCEaseElasticOut::create(CCMoveTo::create(0.5, CCPointZero)));
 	Audio->playEffect(EF_POPBUY);
@@ -79,7 +79,7 @@ void LayerBuy::onNodeLoaded(CCNode* pNode, CCNodeLoader* pNodeLoader)
 void LayerBuy::onBtnClose(CCObject* pSender, CCControlEvent pCCControlEvent)
 {
 	Audio->playEffect(EF_CLICK);
-    mLayerBase->runAction(CCSequence::create(CCScaleTo::create(0.2, 0), CCCallFunc::create(this, callfunc_selector(LayerBuy::_destroyLayer)), NULL));
+	mLayerBase->runAction(CCSequence::create(CCScaleTo::create(0.2, 0), CCCallFunc::create(this, callfunc_selector(LayerBuy::_destroyLayer)), NULL));
 }
 
 void LayerBuy::_destroyLayer()
@@ -101,34 +101,34 @@ void LayerBuy::_destroyLayer()
 
 bool LayerBuy::ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent)
 {
-    return true;
+	return true;
 }
 
 void LayerBuy::purchaseStart(int index)
 {
-    HBUmeng::event("Purchase", fcs("Start: %s", GDShared->mPurchaseItem[index].c_str()));
+	HBUmeng::event("Purchase", fcs("Start: %s", GDShared->mPurchaseItem[index].c_str()));
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 #else
-    mLayerMask->setVisible(true);
+	mLayerMask->setVisible(true);
 #endif
-    HBPurchase::shared()->purchaseItem(index, this, callfuncO_selector(LayerBuy::purchaseSuccess), callfuncO_selector(LayerBuy::purchaseFailed));
+	HBPurchase::shared()->purchaseItem(index, this, callfuncO_selector(LayerBuy::purchaseSuccess), callfuncO_selector(LayerBuy::purchaseFailed));
 }
 
 void LayerBuy::purchaseSuccess(CCString* itemName)
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 #else
-    HBUmeng::event("Purchase", fcs("Success: %s", itemName->getCString()));
+	HBUmeng::event("Purchase", fcs("Success: %s", itemName->getCString()));
 #endif
-    mLayerMask->setVisible(false);
-    GDShared->addPurchaseGold(itemName->getCString());
+	mLayerMask->setVisible(false);
+	GDShared->addPurchaseGold(itemName->getCString());
 }
 
 void LayerBuy::purchaseFailed(CCString* itemName)
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 #else
-    HBUmeng::event("Purchase", fcs("Failed: %s", itemName->getCString()));
+	HBUmeng::event("Purchase", fcs("Failed: %s", itemName->getCString()));
 #endif
-    mLayerMask->setVisible(false);
+	mLayerMask->setVisible(false);
 }

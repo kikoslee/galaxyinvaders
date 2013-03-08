@@ -17,5 +17,6 @@ typedef enum {
     AdViewTypeFullScreen = 6,       //iphone full screen ad
     AdViewTypeVideo = 7,            //Don't support
     AdViewTypeiPadNormalBanner = 8, //ipad use iphone banner
-    AdViewTypeiPadFullScreen = 9,   //ipad full screen ad
+    AdViewTypeiPadFullScreen = 9,   //ipad full screen ad e.g. 1024*768                ipad only
+
 } AdViewType;

@@ -16,6 +16,7 @@ import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.util.Log;
 
+import com.google.analytics.tracking.android.EasyTracker;
 import com.happybluefin.android.framework.store.SharePrefStore;
 import com.happybluefin.android.framework.utility.system.Desktop;
 import com.happybluefin.android.framework.window.WindowManager;
@@ -43,6 +44,18 @@ public class LogoWindow extends Activity {
 
         //Log.d(TAG, "onCreate() end");
     }
+	
+	@Override
+	public void onStart() {
+	    super.onStart();
+	    EasyTracker.getInstance().activityStart(this); // Add this method.
+	}
+
+	@Override
+	public void onStop() {
+	    super.onStop();
+	    EasyTracker.getInstance().activityStop(this); // Add this method.
+	}	
 
     /**
      * @brief  初始化控件函数。

@@ -9,12 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "AdMoGoConfigData.h"
 #import "AdMogoConfigDic.h"
+#import "NSMutableDictionary+AdsMogoDic.h"
 @interface AdMoGoConfigDataCenter : NSObject
 
 /*
     config_dict 保存多个用户配置 
  */
-@property(readonly,retain,nonatomic) AdMogoConfigDic * config_dict;
+@property(retain,nonatomic) NSMutableDictionary *config_dict;
 
 
 /*
@@ -29,5 +30,5 @@
  */
 + (AdMoGoConfigData *) getconfigDictByKey:(NSString *)key;
 
-+ (void) deleteAllData;
+//+ (void) deleteAllData;
 @end
